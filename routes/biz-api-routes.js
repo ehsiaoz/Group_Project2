@@ -8,33 +8,27 @@ var db = require("../models");
 // =============================================================
 module.exports = function(app) {
 
-  // Search for Specific Character (or all characters) then provides JSON
-  app.get("/api/:biz?", function(req, res) {
+  // Create a new businesseses
+  app.post("/biz", function(req, res) {
+    var Biz = req.body;
+	console.log("biz: ", Biz);
+	console.log("biz_name: ", Biz.biz_name);
+	console.log("biz_desc: ", Biz.biz_desc);
 
-    // // If the user provides a specific character in the URL...
-    // if (req.params.characters) {
-    //
-    //   // Then display the JSON for ONLY that character.
-    //   // (Note how we're using the ORM here to run our searches)
-    //   Character.findOne({
-    //     where: {
-    //       routeName: req.params.characters
-    //     }
-    //   }).then(function(result) {
-    //     return res.json(result);
-    //   });
-    // }
+		db.Biz.create({
+			biz_name: Biz.biz_name,
+			biz_desc: Biz.biz_desc,
+      biz_cat: Biz.biz_cat,
+      biz_image: Biz.biz_image,
+      biz_street: Biz.biz_street,
+      biz_city: Biz.biz_city,
+      biz_state: Biz.biz_state,
+      biz_lat: Biz.biz_lat,
+      biz_long: Biz.biz_long
+		}).then(function(data) {
+		res.redirect('/biz');
+	});
 
-    // Otherwise...
-    // else {
-      // Otherwise display the data for all of the characters.
-      // (Note how we're using Sequelize here to run our searches)
-  //     Character.findAll({})
-  //       .then(function(result) {
-  //         return res.json(result);
-  //       });
-  //   }
-  //
   });
 
   // If a user sends data to add a new character...

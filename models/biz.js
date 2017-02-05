@@ -10,14 +10,14 @@ module.exports = function(sequelize, DataTypes) {
     },
     biz_desc: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
       validate: {
         len: [10]
       }
     },
     biz_cat: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       validate: {
         len: [2]
       }
@@ -26,7 +26,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    biz_stret: {
+    biz_street: {
       type: DataTypes.STRING,
       allowNull: true,
     },
