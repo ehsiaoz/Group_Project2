@@ -24,6 +24,7 @@ app.use(methodOverride('_method'));
 app.engine('handlebars', exprhbs({extname: 'handlebars', defaultLayout: 'main', layoutDir: __dirname + '/view/layouts/'}));
 app.set('view engine', 'handlebars');
 
+app.use(express.static(process.cwd() + "/public"));
 
 // Routes
 // =============================================================
