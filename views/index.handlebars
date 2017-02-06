@@ -1,12 +1,10 @@
 
 
-<div id="Businesses">
-	<h3>Businesses</h3>
-	<div class="Businesses">
-		{{#each businesses}}
-			{{!-- {{#unless this.devoured}} --}}
+
+{{#each businesses}}
+			
 				<div class="bizResult">
-					<p class="bizName"><strong>Business Name: {{this.biz_name}}</strong></p>
+					<p class="bizName">Business Name: {{this.biz_name}}</p>
 					<p class="bizDesc">Description: {{this.biz_desc}}</p>
 					<p class="bizCat">Category: {{this.biz_cat}}</p>
 					<p class="bizimage">Image URL: {{this.biz_image}}</p>
@@ -17,9 +15,6 @@
 					<p class="bizLong">Geo Long: {{this.biz_long}}</p>
 					<p class="bizCreateAt">Created At: {{this.createdAt}}</p>
 					<p class="bizUpdateAt">Updated At: {{this.updatedAt}}</p>
-
 				</div>
-			{{!-- {{/unless}} --}}
+		
 		{{/each}}
-	</div>
-</div>

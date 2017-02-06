@@ -9,3 +9,8 @@
 .bizResult {
 	background-color: beige;
 }
+
+.bizName {
+	color: blue;
+	font-weight: bold;
+}
