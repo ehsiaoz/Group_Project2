@@ -33,4 +33,6 @@ Object.keys(db).forEach(function(modelName) {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+db.Offer.belongsTo(db.Biz, {foreignKey: 'fk_biz'});
+
 module.exports = db;
