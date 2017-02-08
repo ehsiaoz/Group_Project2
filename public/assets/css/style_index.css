@@ -20,13 +20,13 @@
 .bizDesc {
 
 }
-					<p class="bizCat">Category: {{this.biz_cat}}</p>
-					<p class="bizimage">Image URL: {{this.biz_image}}</p>
-					<p class="bizstreet">Address: {{this.biz_street}}</p>
-					<p class="bizCity">City: {{this.biz_city}}</p>
-					<p class="bizState">State: {{this.biz_state}}</p>
-					<p class="bizLat">Geo Lat: {{this.biz_lat}}</p>
-					<p class="bizLong">Geo Long: {{this.biz_long}}</p>
-					<p class="bizCreateAt">Created At: {{this.createdAt}}</p>
-					<p class="bizUpdateAt">Updated At: {{this.updatedAt}}</p>
 		
+
+.offerName {
+	color: blue;
+	font-weight: bold;
+}
+	
+.offerResult {
+	background-color: beige;
+}							

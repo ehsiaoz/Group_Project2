@@ -38,6 +38,16 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/offers", function(req, res) {
+    // res.sendFile(path.join(__dirname + "/../public/add.html"));
+    db.Offer.findAll({}).then(function(data){
+      console.log("Offers from DB: ", data);
+      var offers = { offers: data};
+      console.log("Offers (hbsObject): ", offers);
+      res.render('offerListings', offers);
+    });
+  });
+
 
   // all route loads the all.html page,
   // where all characters in the db are displayed
