@@ -16,15 +16,15 @@ module.exports = function(app) {
 
   // add route loads the add.html page,
   // where users can enter new characters to the db
-  app.get("/biz", function(req, res) {
-    // res.sendFile(path.join(__dirname + "/../public/add.html"));
-    db.Biz.findAll({}).then(function(data){
-      console.log("data from DB: ", data);
-      var hbsObject = { businesses: data};
-      console.log("Businesses (hbsObject): ", hbsObject);
-      res.render('index', hbsObject);
-    });
-  });
+  // app.get("/biz", function(req, res) {
+  //   // res.sendFile(path.join(__dirname + "/../public/add.html"));
+  //   db.Biz.findAll({}).then(function(data){
+  //     console.log("data from DB: ", data);
+  //     var hbsObject = { businesses: data};
+  //     console.log("Businesses (hbsObject): ", hbsObject);
+  //     res.render('index', hbsObject);
+  //   });
+  // });
 
   // add route loads the add.html page,
   // where users can enter new characters to the db
