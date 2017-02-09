@@ -5,22 +5,26 @@
 	<div id="Businesses">
 		<h3>Business</h3>
 		<div class="Businesses">
+		{{#with business}}
 			{{!-- {{#each business}} --}}
 
 							<div class="bizResult">
-								<p class="bizName">{{business.biz_name}}</p>
-								<p class="bizDesc">Description: {{this.biz_desc}}</p>
-								<p class="bizCat">Category: {{this.biz_cat}}</p>
-								<p class="bizimage">Image URL: {{this.biz_image}}</p>
-								<p class="bizstreet">Address: {{this.biz_street}}</p>
-								<p class="bizCity">City: {{this.biz_city}}</p>
-								<p class="bizState">State: {{this.biz_state}}</p>
-								<p class="bizLat">Geo Lat: {{this.biz_lat}}</p>
-								<p class="bizLong">Geo Long: {{this.biz_long}}</p>
-								<p class="bizCreateAt">Created At: {{this.createdAt}}</p>
-								<p class="bizUpdateAt">Updated At: {{this.updatedAt}}</p>
+								<p class="bizName">{{biz_name}}</p>
+								<p class="bizDesc">Description: {{biz_desc}}</p>
+								<p class="bizCat">Category: {{biz_cat}}</p>
+								<p class="bizimage">Image URL: {{biz_image}}</p>
+								<p class="bizstreet">Address: {{biz_street}}</p>
+								<p class="bizCity">City: {{biz_city}}</p>
+								<p class="bizState">State: {{biz_state}}</p>
+								<p class="bizLat">Geo Lat: {{biz_lat}}</p>
+								<p class="bizLong">Geo Long: {{biz_long}}</p>
+								<p class="bizCreateAt">Created At: {{createdAt}}</p>
+								<p class="bizUpdateAt">Updated At: {{updatedAt}}</p>
 							</div>
 
 					{{!-- {{/each}} --}}
+
+
+		{{/with}}
 		</div>
 	</div>
