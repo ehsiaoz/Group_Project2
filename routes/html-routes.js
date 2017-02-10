@@ -42,9 +42,20 @@ module.exports = function(app) {
       });
   });
 
+
   //route to return a create business form
-  app.get("/create/:bizId?", function(req, res) {
-    
+  app.get("/create/cat", function(req, res) {
+      res.render('createCat');
+  });
+
+  //route to return a create business form
+  app.get("/create/biz", function(req, res) {
+    db.Category.findAll({})
+    .then(function(data){
+        var hbsObject = { categories: data};
+        console.log(hbsObject.categories)
+        res.render('createBiz', hbsObject);
+      });
   });
 
   //route to return a biz listing with a form to create an offer
