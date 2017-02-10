@@ -26,28 +26,8 @@ module.exports = function(app) {
       biz_lat: Biz.biz_lat,
       biz_long: Biz.biz_long
 		}).then(function(data) {
-		res.redirect('/biz');
-	});
-
+		    res.redirect('/biz');
+	  });
   });
 
-  // If a user sends data to add a new character...
-  app.post("/api/new", function(req, res) {
-
-    // Take the request...
-    // var character = req.body;
-    //
-    // // Create a routeName
-    // var routeName = character.name.replace(/\s+/g, "").toLowerCase();
-    //
-    // // Then add the character to the database using sequelize
-    // Character.create({
-    //   routeName: routeName,
-    //   name: character.name,
-    //   role: character.role,
-    //   age: character.age,
-    //   forcePoints: character.forcePoints
-    // });
-
-  });
 };

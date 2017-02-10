@@ -14,6 +14,52 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname + "/../public/test.html"));
   });
 
+  //route to return list of businesses by category
+  app.get("/search/:category", function(req, res) {
+    var category = req.params.category;
+    db.Biz.findAll({
+      where: {
+        fk_catId: category
+      }
+    }).then(function(data){
+
+      var businesses = { businesses: data};
+      console.log("Businesses (hbsObject): ", businesses);
+      console.log("Businesses in category: ", category + " Businesses: ", businesses);
+      res.render('bizListings', businesses);
+    });
+  });
+
+  //route to return a specific business listing
+  app.get("/biz/:id?", function(req, res) {
+    var bizId = req.params.biz_id
+    db.Biz.findById(bizId)
+    .then(function(data){
+        console.log("data from DB: ", data);
+        var business = { business: data};
+        console.log("Business (hbsObject): ", business);
+        res.render('biz', business);
+      });
+  });
+
+  //route to return a create business form
+  app.get("/create/:bizId?", function(req, res) {
+    
+  });
+
+  //route to return a biz listing with a form to create an offer
+  app.get("/create/offer/:bizId?", function(req, res) {
+
+  });
+
+
+
+
+
+
+
+
+
   // add route loads the add.html page,
   // where users can enter new characters to the db
   // app.get("/biz", function(req, res) {
