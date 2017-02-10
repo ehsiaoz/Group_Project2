@@ -25,9 +25,16 @@
 			<input type="text" id="lat" name="biz_lat"><br>
 			<label for="desc">geo_long:</label>
 			<input type="text" id="long" name="biz_long"><br>
+			<label for="existingCat">Choose Category:</label>
+			<select name="categories">
+				<option value="null">Select a category</option>
+				{{#each categories}}
+							<option value={{this.id}}>{{this.cat_name}}</option>
+				{{/each}}
+			</select><br>
 			<label for="newCat">New Category:</label>
 			<input type="text" id="newCat" name="new_cat"><br>
-			
+
 			<button id="submit" type="submit">Submit</button>
 		</div>
 	</form>
