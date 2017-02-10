@@ -1,0 +1,53 @@
+
+<div class="col-xs-2">
+
+</div>
+
+<div class="col-xs-8">
+
+	<h1>All Offers</h1>
+
+	<p>List of Offers in the DB</p>
+
+
+	<div id="Offers">
+		<h3>Offers</h3>
+		<div class="Offers">
+			{{#each offers}}
+
+							<div class="offerResult">
+								<p class="offerName">{{this.offer_title}}</p>
+								<p class="origPrice">Original Price: {{this.offer_origPrice}}</p>
+								<p class="dealPrice">Deal Price: {{this.offer_dealPrice}}</p>
+								<p class="offerimage">Offer Image URL: {{this.offer_image}}</p>
+								<p class="offerCreateAt">Created At: {{this.createdAt}}</p>
+								<p class="offerUpdateAt">Updated At: {{this.updatedAt}}</p>
+							</div>
+
+					{{/each}}
+		</div>
+	</div>
+
+
+<h3>Create an Offer</h3>
+
+	<form class="create-update-form" action="/api/offer" method="POST">
+		<div class="form-group">
+			<label for="title">Offer Title:</label>
+			<input type="text" id="title" name="offer_title"><br>
+			<label for="origPrice">Original Price:</label>
+			<input type="number" id="origPrice" name="offer_origPrice"><br>
+			<label for="dealPrice">Deal Price:</label>
+			<input type="number" id="dealPrice" name="offer_dealPrice"><br>
+			<label for="image">Offer image URL:</label>
+			<input type="text" id="image" name="offer_image"><br>
+			<label for="desc">Street Address:</label>
+			<button id="submit" type="submit">Submit</button>
+		</div>
+	</form>
+
+</div>
+
+<div class="col-xs-2">
+
+</div>

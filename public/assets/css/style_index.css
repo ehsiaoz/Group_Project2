@@ -1,0 +1,32 @@
+#global-header {
+	background-color: green;
+},
+
+.sub-nav {
+	background-color: grey;
+}
+
+.bizResult {
+	background-color: beige;
+}
+
+.bizName {
+	color: blue;
+	font-weight: bold;
+},
+
+
+					
+.bizDesc {
+
+}
+		
+
+.offerName {
+	color: blue;
+	font-weight: bold;
+}
+	
+.offerResult {
+	background-color: beige;
+}
