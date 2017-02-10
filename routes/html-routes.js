@@ -62,11 +62,23 @@ module.exports = function(app) {
     // }
   // )
   .then(function(data){
-      console.log("data from DB: ", data);
       var business = { business: data};
       console.log("Business (hbsObject): ", business);
       res.render('biz', business);
     });
   });
 
+  //===================================================
+  //j routes
+  //get route from individual business page to create deal
+  app.get('/create/offer/:id', function(request, response){
+    db.Biz.findById(request.params.id)
+    .then(function(data){
+      var business = { business: data};
+      console.log("Business data to create offer form: ", business);
+      response.render('createoffer', business);
+    });
+  });
+  //end of j routes
+  //===================================================
 };

@@ -1,9 +1,12 @@
 
-	<p>Individual Business</p>
+	<p>CREATE AN OFFER FORM</p>
 
 
 	<div id="Businesses">
 		<h3>Business</h3>
+
+		<h1>insert create offer form here</h1>
+
 		<div class="Businesses">
 		{{#with business}}
 			{{!-- {{#each business}} --}}
@@ -21,11 +24,6 @@
 								<p class="bizCreateAt">Created At: {{createdAt}}</p>
 								<p class="bizUpdateAt">Updated At: {{updatedAt}}</p>
 							</div>
-
-							<form id = 'create-deal' action = '/create/offer/{{id}}' method = 'GET'>
-						
-						<button id='deal-button' type = 'submit' title = 'create deal'>create deal</button>
-					</form>
 
 					{{!-- {{/each}} --}}
 
