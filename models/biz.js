@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: true,
       validate: {
-        len: [10]
+        len: [2]
       }
     },
     biz_image: {
