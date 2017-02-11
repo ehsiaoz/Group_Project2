@@ -36,7 +36,7 @@ require("./routes/html-routes.js")(app);
 // Syncing our sequelize models and then starting our express app
 //force true overwrites the local table
 //force false keeps the table data you've put in the table after restarting the server
-db.sequelize.sync({ force: false }).then(function() {
+db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });

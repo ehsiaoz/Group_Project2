@@ -13,30 +13,55 @@ module.exports = function(app) {
   app.post("/api/create/biz", function(req, res) {
     var Biz = req.body;
     var geocode_addr = Biz.biz_street + ', ' + Biz.biz_city + ', ' + Biz.biz_state;
+    var biz_latitude;
+    var biz_longitude;
 
     geocoder.geocode(geocode_addr, function(err, data) {
-      console.log(JSON.stringify(data.results[0].geometry.location, null, 2));
-      var biz_latitude = data.results[0].geometry.location.lat;
-      var biz_longitude = data.results[0].geometry.location.lng;
-      console.log('longitude: ', biz_longitude, '; latitude: ', biz_latitude);
-
-      createBiz(biz_latitude, biz_longitude);
-
+      biz_latitude = data.results[0].geometry.location.lat;
+      biz_longitude = data.results[0].geometry.location.lng;
     });
-    function createBiz(biz_latitude, biz_longitude) {
-      db.Biz.create({
-        biz_name: Biz.biz_name,
-        biz_desc: Biz.biz_desc,
-        biz_cat: Biz.biz_cat,
-        biz_image: Biz.biz_image,
-        biz_street: Biz.biz_street,
-        biz_city: Biz.biz_city,
-        biz_state: Biz.biz_state,
-        biz_lat: biz_latitude,
-        biz_long: biz_longitude
-      }).then(function(data) {
-        res.redirect('/biz');
-      });
+
+    var bizzob = {
+			biz_name: Biz.biz_name,
+			biz_desc: Biz.biz_desc,
+      biz_image: Biz.biz_image,
+      biz_street: Biz.biz_street,
+      biz_city: Biz.biz_city,
+      biz_state: Biz.biz_state,
+      biz_lat: biz_latitude,
+      biz_long: biz_longitude
+
+    };
+    var catcreateob = {
+      Category: {
+        cat_name: Biz.new_cat
+      }
+    };
+    // var bizzCreatePromise;
+
+    if (!Biz.categories && Biz.new_cat){
+     db.Biz.create(Object.assign({}, bizzob, catcreateob) , { include: [db.Category]}).then(function(data) {
+ 		    res.redirect('/biz');
+ 	  });
     }
+
+    if(Biz.categories) {
+      var bb = Object.assign({}, bizzob,  {fk_catId: parseInt(Biz.categories)});
+      db.Biz.create(bb).then(function(data) {
+  		    res.redirect('/biz');
+  	  });
+    }
+    if (!Biz.categories && !Biz.new_cat){
+        //  db.Biz.create(bizzob).then(function(data) {
+     	// 	    res.redirect('/biz');
+     	 //  });
+       res.send("Need a category");
+    }
+
+		//db.Biz.create(bizzob , { include: [db.Category]})
+    //
+    // bizzCreatePromise.then(function(data) {
+		//     res.redirect('/biz');
+	  // });
   });
 };

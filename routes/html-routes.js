@@ -19,6 +19,7 @@ module.exports = function(app) {
   //route to return list of businesses by category
   app.get("/search/:cat_id", function(req, res) {
     var category = req.params.cat_id;
+
     db.Biz.findAll({
       where: {
         fk_catId: category
@@ -31,7 +32,8 @@ module.exports = function(app) {
     });
   });
 
-  //route to return a specific business listing
+
+  //route to return a specific business listing and it's associating offers
   app.get("/biz/:biz_id", function(req, res) {
     var bizId = req.params.biz_id;
     db.Biz.findById(bizId)
@@ -56,6 +58,61 @@ module.exports = function(app) {
   //route to return a create business form
   app.get("/create/cat", function(req, res) {
       res.render('createCat');
+    });
+
+
+  //route to return a biz listing with a form to create an offer
+  app.get("/api/offers/:biz_Id", function(req, res) {
+    var bizId = req.body.biz_Id;
+    db.Offer.findAll({
+      where: {
+        fk_bizId: bizId
+      }
+    }).then(function(data){
+
+    });
+  });
+
+
+
+
+
+
+
+
+
+  // add route loads the add.html page,
+  // where users can enter new characters to the db
+  // app.get("/biz", function(req, res) {
+  //   // res.sendFile(path.join(__dirname + "/../public/add.html"));
+  //   db.Biz.findAll({}).then(function(data){
+  //     console.log("data from DB: ", data);
+  //     var hbsObject = { businesses: data};
+  //     console.log("Businesses (hbsObject): ", hbsObject);
+  //     res.render('index', hbsObject);
+  //   });
+  // });
+
+  // add route loads the add.html page,
+  // where users can enter new characters to the db
+  app.get("/biz", function(req, res) {
+    // res.sendFile(path.join(__dirname + "/../public/add.html"));
+    db.Biz.findAll({}).then(function(data){
+      console.log("data from DB: ", data);
+      var businesses = { businesses: data};
+      console.log("Businesses (hbsObject): ", businesses);
+      res.render('bizListings', businesses);
+    });
+  });
+
+  app.get("/offers", function(req, res) {
+    // res.sendFile(path.join(__dirname + "/../public/add.html"));
+    db.Offer.findAll({}).then(function(data){
+      console.log("Offers from DB: ", data);
+      var offers = { offers: data};
+      console.log("Offers (hbsObject): ", offers);
+      res.render('offerListings', offers);
+    });
   });
 
 
