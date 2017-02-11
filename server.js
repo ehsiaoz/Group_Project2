@@ -31,7 +31,7 @@ app.use(express.static(process.cwd() + "/public"));
 require("./routes/biz-api-routes.js")(app);
 require("./routes/offer-api-routes.js")(app);
 require("./routes/html-routes.js")(app);
-
+require("./routes/business-routes.js")(app);
 
 // Syncing our sequelize models and then starting our express app
 //force true overwrites the local table
