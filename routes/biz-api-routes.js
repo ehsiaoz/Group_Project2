@@ -10,7 +10,7 @@ var geocoder = require("geocoder");
 module.exports = function(app) {
 
   // Create a new business
-  app.post("/biz", function(req, res) {
+  app.post("/api/create/biz", function(req, res) {
     var Biz = req.body;
     var geocode_addr = Biz.biz_street + ', ' + Biz.biz_city + ', ' + Biz.biz_state;
 
