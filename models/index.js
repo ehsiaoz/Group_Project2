@@ -33,6 +33,12 @@ Object.keys(db).forEach(function(modelName) {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-db.Offer.belongsTo(db.Biz, {foreignKey: 'fk_biz'});
+//original join
+//db.Offer.belongsTo(db.Biz, {foreignKey: 'fk_biz'});
+//====================
+
+db.Biz.belongsTo(db.Category, {foreignKey: 'fk_catId'});
+db.Offer.belongsTo(db.Biz, {foreignKey: 'fk_bizId'});
+
 
 module.exports = db;

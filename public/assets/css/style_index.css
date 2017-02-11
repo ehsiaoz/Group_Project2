@@ -35,5 +35,33 @@
 ======================================================*/
 
 
+footer{
+	text-align: center;
+	position:fixed;
+	/*need to define width because position is fixed*/
+	width: 100%;
+	top: 100%;
+	margin-top: -29.333px;
+    -webkit-transition: all 1s ease 0s;/* For Safari 3.1 to 6.0 */
+	-moz-transition: all 1s ease 0s;
+	transition: all 1s ease 0s;
+}
+
+#footer-content{
+	font-size: 10px;
+	color: rgba(235, 235, 235, 0.75);
+	padding: 9px 0;
+	-webkit-transition: all 1s ease 0s;/* For Safari 3.1 to 6.0 */
+	-moz-transition: all 1s ease 0s;
+	transition: all 1s ease 0s;
+}
+
+footer:hover{
+	background: rgba(255, 255, 255, 0.5);
+}
+
+footer:hover #footer-content{
+	color: rgba(0, 0, 0, 0.75);
+}
 /*END of css styles for j:
 ======================================================*/

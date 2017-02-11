@@ -9,12 +9,9 @@ var geocoder = require("geocoder");
 // =============================================================
 module.exports = function(app) {
 
-  // Create a new businesseses
+  // Create a new business
   app.post("/biz", function(req, res) {
     var Biz = req.body;
-  	console.log("biz: ", Biz);
-  	console.log("biz_name: ", Biz.biz_name);
-  	console.log("biz_desc: ", Biz.biz_desc);
     var geocode_addr = Biz.biz_street + ', ' + Biz.biz_city + ', ' + Biz.biz_state;
 
     geocoder.geocode(geocode_addr, function(err, data) {
@@ -27,7 +24,6 @@ module.exports = function(app) {
 
     });
     function createBiz(biz_latitude, biz_longitude) {
-
       db.Biz.create({
         biz_name: Biz.biz_name,
         biz_desc: Biz.biz_desc,
@@ -42,26 +38,5 @@ module.exports = function(app) {
         res.redirect('/biz');
       });
     }
-
-  });
-
-  // If a user sends data to add a new character...
-  app.post("/api/new", function(req, res) {
-
-    // Take the request...
-    // var character = req.body;
-    //
-    // // Create a routeName
-    // var routeName = character.name.replace(/\s+/g, "").toLowerCase();
-    //
-    // // Then add the character to the database using sequelize
-    // Character.create({
-    //   routeName: routeName,
-    //   name: character.name,
-    //   role: character.role,
-    //   age: character.age,
-    //   forcePoints: character.forcePoints
-    // });
-
   });
 };
