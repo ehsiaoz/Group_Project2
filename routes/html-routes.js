@@ -50,7 +50,7 @@ module.exports = function(app) {
     db.Category.findAll({})
     .then(function(data){
         var hbsObject = { categories: data};
-        console.log(hbsObject.categories);
+        console.log('categories: ', hbsObject.categories);
         res.render('createBiz', hbsObject);
       });
   });

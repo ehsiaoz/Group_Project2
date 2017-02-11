@@ -16,13 +16,6 @@ module.exports = function(sequelize, DataTypes) {
         len: [2]
       }
     },
-    biz_cat: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      validate: {
-        len: [2]
-      }
-    },
     biz_image: {
       type: DataTypes.STRING,
       allowNull: true,

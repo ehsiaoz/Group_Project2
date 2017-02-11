@@ -57,6 +57,11 @@ header{
 	margin: 0 auto;
 }
 
+.fit-90{
+	width: 90%;
+	margin: 0 auto;
+}
+
 #header-top{
 	display: inline-block;
 	width: 100%;
@@ -399,7 +404,7 @@ header{
 	border: 2px solid rgb(21, 21, 21);
 	margin-right: 3%;
 	margin-bottom:20px;
-	background-image: url('../img/jn_3604.JPG');
+	background-image: url('../images/jn_3516.JPG');
 	background-position: center center;
 	background-repeat: no-repeat;
 /*    background-attachment: fixed;
