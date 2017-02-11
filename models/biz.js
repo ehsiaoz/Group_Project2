@@ -12,7 +12,8 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: true,
       validate: {
-        len: [10]
+        //changed this so validation checks that there are minimum 2 characters
+        len: [2]
       }
     },
     biz_cat: {
