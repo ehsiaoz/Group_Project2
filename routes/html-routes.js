@@ -15,8 +15,8 @@ module.exports = function(app) {
   });
 
   //route to return list of businesses by category
-  app.get("/search/:category", function(req, res) {
-    var category = req.params.category;
+  app.get("/search/:cat_id", function(req, res) {
+    var category = req.params.catid;
     db.Biz.findAll({
       where: {
         fk_catId: category
@@ -30,8 +30,8 @@ module.exports = function(app) {
     });
   });
 
-  //route to return a specific business listing
-  app.get("/biz/:id?", function(req, res) {
+  //route to return a specific business listing and it's associating offers
+  app.get("/biz/:biz_id", function(req, res) {
     var bizId = req.params.biz_id
     db.Biz.findById(bizId)
     .then(function(data){
@@ -59,8 +59,15 @@ module.exports = function(app) {
   });
 
   //route to return a biz listing with a form to create an offer
-  app.get("/create/offer/:bizId?", function(req, res) {
+  app.get("/api/offers/:bizId", function(req, res) {
+    var bizId = req.body.bizId
+    db.Offer.findAll({
+      where: {
+        fk_bizId: bizId
+      }
+    }).then(function(data){
 
+    });
   });
 
 
