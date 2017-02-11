@@ -39,7 +39,6 @@ module.exports = function(app) {
   //route to return a specific business listing and it's associating offers
   app.get("/biz/:biz_id", function(req, res) {
     var bizId = req.params.biz_id;
-<<<<<<< HEAD
     console.log("This is bizId: ", bizId);
     db.Biz.findAll({where: {id: bizId}, include: [db.Offer] })
 
@@ -47,11 +46,6 @@ module.exports = function(app) {
     // db.Biz.findAll({ where: {id: bizId}, include: [db.Offer] }).then(function(biz){
     //   console.log(biz)
 
-
-
-=======
-    db.Biz.findById(bizId)
->>>>>>> 6d2b626a5fad06fdd5fa6e1dad8986c0742b0459
     .then(function(data){
         console.log("data from DB: ", data);
         var business = { business: data};
@@ -77,21 +71,7 @@ module.exports = function(app) {
     });
 
 
-  //route to return a biz listing with a form to create an offer
-  app.get("/api/offers/:biz_Id", function(req, res) {
-<<<<<<< HEAD
-    var bizId = req.body.biz_Id
-=======
-    var bizId = req.body.biz_Id;
->>>>>>> 6d2b626a5fad06fdd5fa6e1dad8986c0742b0459
-    db.Offer.findAll({
-      where: {
-        fk_bizId: bizId
-      }
-    }).then(function(data){
-
-    });
-  });
+  
 
   //route to create an offer form
   app.get("/offers", function(req, res) {
@@ -135,24 +115,17 @@ module.exports = function(app) {
   // });
 
 
+//route to return a biz listing with a form to create an offer
+  app.get("/api/offers/:biz_Id", function(req, res) {
 
-
-<<<<<<< HEAD
-
-};
-=======
-  // Create a new offer
-  app.get("/api/offer/:biz_id", function(req, res) {
+    var bizId = req.body.biz_Id;
     db.Offer.findAll({
       where: {
-        fk_biz: req.params.biz_id
+        fk_bizId: bizId
       }
     }).then(function(data){
-      // console.log("Offers for biz: ", data);
-      // var offers = { offers: data};
-      // console.log("Offers (hbsObject): ", offers);
-      // res.send(offers);
+
     });
   });
+
 };
->>>>>>> 6d2b626a5fad06fdd5fa6e1dad8986c0742b0459
