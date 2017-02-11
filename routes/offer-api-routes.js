@@ -8,13 +8,13 @@ var db = require("../models");
 // =============================================================
 module.exports = function(app) {
 
-<<<<<<< HEAD
   // Create a new offer
   app.post("/api/offer", function(req, res) {
     var Offer = req.body;
   // console.log("Offer (req.body): ", Offer);
   // console.log("offer_title: ", Offer.offer_title);
   // console.log("offer_origPrice: ", Offer.offer_origPrice);
+
 
     db.Offer.create({
       offer_title: Offer.offer_title,
@@ -41,39 +41,11 @@ module.exports = function(app) {
       console.log("Offers (hbsObject): ", offers);
       res.send(offers);
     });
-=======
-  // Search for Specific Character (or all characters) then provides JSON
-  app.get("/api/:offer?", function(req, res) {
-
-    // // If the user provides a specific character in the URL...
-    // if (req.params.characters) {
-    //
-    //   // Then display the JSON for ONLY that character.
-    //   // (Note how we're using the ORM here to run our searches)
-    //   Character.findOne({
-    //     where: {
-    //       routeName: req.params.characters
-    //     }
-    //   }).then(function(result) {
-    //     return res.json(result);
-    //   });
-    // }
-
-    // Otherwise...
-    // else {
-      // Otherwise display the data for all of the characters.
-      // (Note how we're using Sequelize here to run our searches)
-  //     Character.findAll({})
-  //       .then(function(result) {
-  //         return res.json(result);
-  //       });
-  //   }
-  //
   });
 
-
+//=====================================================
   app.get("/api/offers/:bizId?", function(req, res) {
-    var bizId = req.body.bizId
+    var bizId = req.body.bizId;
     db.Offer.findAll({
       where: {
         fk_bizId: bizId
@@ -99,7 +71,36 @@ module.exports = function(app) {
 		}).then(function(data) {
 		    res.redirect('/biz/', bizId);
 	  });
->>>>>>> df1cc2eed7661ddf953d6c0b671a371d118c8d61
 
   });
 };
+
+//===================================================
+//j routes
+//get route from individual business page to create deal
+  // app.get('/create/offer/:business_id', function(request, response){
+  //   db.Biz.findById(request.params.business_id)
+  //   .then(function(data){
+  //     var business = { business: data};
+  //     console.log("Business data to create offer form: ", business);
+  //     response.render('createoffer', business);
+  //   });
+  // });
+
+  // //create deal
+  // app.post("/createdeal", function(request, response) {
+  //   var deal = request.body;
+  //   console.log("deal information: ", deal);
+    
+  //     db.Offer.create({
+  //       offer_title: deal.title,
+  //       offer_origPrice: deal.originalPrice,
+  //       offer_dealPrice: deal.dealPrice,
+  //       offer_image: deal.image
+  //     }).then(function(data) {
+  //       //redirect to this businesses' page (will show updated deals)
+  //       // res.redirect('/biz');
+  //     });
+  // });
+//end of j routes
+//===================================================
