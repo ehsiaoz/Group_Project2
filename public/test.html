@@ -2,12 +2,59 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-		<link rel="stylesheet" href="./assets/css/burger_style.css" type="text/css" />
-		<title>burgers | homework 12</title>
+		<title>Group Project 2</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="/assets/css/style_index.css">
+	    <!-- for font awesome icons: -->
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-	<div class="bizListing">
-
+	<div class="container-fluid">
+		{{{ body }}}
+	<form class="create-update-form" action="/api/create/biz" method="POST">
+		<div class="form-group has-success has-feedback">
+			<label for="name">Business Name:</label>
+			<input type="text" class="form-control" id="name" name="biz_name">
+		</div>
+		<div class="form-group has-success has-feedback">
+			<label for="desc">Description:</label>
+			<textarea class="form-control" rows="3" id="desc" name="biz_desc"></textarea>
+		</div>
+		<div class="form-group has-success has-feedback">
+			<label for="desc">image:</label>
+			<input type="text" class="form-control" id="image" name="biz_image">
+		</div>
+		<div class="form-group has-success has-feedback">
+			<label for="desc">Street Address:</label>
+			<input type="text" class="form-control" id="street" name="biz_street">
+		</div>
+		<div class="form-group has-success has-feedback">
+			<label for="city">City:</label>
+			<input type="text" class="form-control" id="city" name="biz_city">
+		</div>
+		<div class="form-group has-success has-feedback">
+			<label for="state">State:</label>
+			<input type="text" id="state" name="biz_state"><br>			
+			<label for="existingCat">Choose Category:</label>
+			<select name="categories">
+				<option value="">Select a category</option>
+				{{#each categories}}
+					<option value={{this.id}}>{{this.cat_name}}</option>
+				{{/each}}
+			</select><br>
+			<label for="newCat">New Category:</label>
+			<input class="form-control" type="text" id="newCat" name="new_cat">
+		</div>
+		<button class="btn btn-success" id="submit" type="submit">Submit</button>
+	</form>
 	</div>
+	<footer id='footer'>
+		<div id="footer-content">
+			Copyright &copy; 2017 EH JN HS. All Rights Reserved.
+		</div>
+	</footer>
 </body>
+<script type="text/javascript" src="./assets/js/index.js"></script>
+<script src="https://code.jquery.com/jquery.js"></script>
 </html>

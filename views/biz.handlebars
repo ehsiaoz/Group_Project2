@@ -2,30 +2,85 @@
 	<p>Individual Business</p>
 
 
-	<div id="Businesses">
-		<h3>Business</h3>
-		<div class="Businesses">
+
 		{{#with business}}
 			{{!-- {{#each business}} --}}
 
-							<div class="bizResult">
-								<p class="bizName">{{this.biz_name}}</p>
-								<p class="bizDesc">Description: {{this.biz_desc}}</p>
-								<p class="bizCat">Category: {{this.fk_catId}}</p>
-								<p class="bizimage">Image URL: {{this.biz_image}}</p>
-								<p class="bizstreet">Address: {{this.biz_street}}</p>
-								<p class="bizCity">City: {{this.biz_city}}</p>
-								<p class="bizState">State: {{this.biz_state}}</p>
-								<p class="bizLat">Geo Lat: {{this.biz_lat}}</p>
-								<p class="bizLong">Geo Long: {{this.biz_long}}</p>
-								<p class="bizCreateAt">Created At: {{this.createdAt}}</p>
-								<p class="bizUpdateAt">Updated At: {{this.updatedAt}}</p>
-
-							</div>
-
-					{{!-- {{/each}} --}}
-
-
-		{{/with}}
+<div class = 'fit-90'>
+		<div id = 'business-name'>{{biz_name}}</div>
+			<div id = 'edit-business-info-button'>edit info
+				</div>
+		<br>
+		<div id = 'business-image'></div>
+		<div id = 'business-information'>
+			<div class = 'business-attribute'>
+				<span class = 'desc-label'>category:</span>
+				<span class = 'desc-content'>{{biz_cat}}</span>
+			</div>
+			<div class = 'business-attribute'>
+				<span class = 'desc-label'>address:</span>
+				<span class = 'desc-content'>{{biz_street}}, {{biz_city}}, {{biz_state}}</span>
+			</div>
+			<div class = 'business-attribute'>
+				<span class = 'desc-label'>what we do:</span>
+				<span class = 'desc-content'>{{biz_desc}}</span>
+			</div>
+			<!-- <p class="bizLat">Geo Lat: {{this.biz_lat}}</p>
+					<p class="bizLong">Geo Long: {{this.biz_long}}</p>
+					<p class="bizCreateAt">Created At: {{this.createdAt}}</p>
+					<p class="bizUpdateAt">Updated At: {{this.updatedAt}}</p> -->
 		</div>
+		<div id = 'business-deals'>
+			<div class = 'deal-panel-30'>
+				<div class = 'deal-panel-header'>
+					awesome deal
+				</div>
+				<div class = 'deal-panel-content'>
+					content of awesome deal
+				</div>
+			</div>
+			<div class = 'deal-panel-30'>
+				<div class = 'deal-panel-header'>
+					awesome deal
+				</div>
+				<div class = 'deal-panel-content'>
+					content of awesome deal
+				</div>
+			</div>
+			<div class = 'deal-panel-30'>
+				<div class = 'deal-panel-header'>
+					awesome deal
+				</div>
+				<div class = 'deal-panel-content'>
+					content of awesome deal
+				</div>
+			</div>
+		<!-- 	<div class = 'deal-panel-30'>
+				<div class = 'deal-panel-header'>
+					awesome deal
+				</div>
+				<div class = 'deal-panel-content'>
+					content of awesome deal
+				</div>
+			</div>
+			<div class = 'deal-panel-30'>
+				<div class = 'deal-panel-header'>
+					awesome deal
+				</div>
+				<div class = 'deal-panel-content'>
+					content of awesome deal
+				</div>
+			</div> -->
+		</div>
+		<!-- <form id = 'create-deal' action = '/create/offer/{{id}}' method = 'GET'> -->
+							<form id = 'create-deal' action = '/api/offers//new/{{id}}' method = 'GET'>
+						<button id='deal-button' type = 'submit' title = 'create deal'>create deal</button>
+					</form>
+					<p class="bizLat">Geo Lat: {{biz_lat}}</p>
+								<p class="bizLong">Geo Long: {{biz_long}}</p>
+								<p class="bizCreateAt">Created At: {{createdAt}}</p>
+								<p class="bizUpdateAt">Updated At: {{updatedAt}}</p>
+
 	</div>
+		{{!-- {{/each}} --}}
+		{{/with}}

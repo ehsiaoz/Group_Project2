@@ -33,6 +33,10 @@ Object.keys(db).forEach(function(modelName) {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+//original join
+//db.Offer.belongsTo(db.Biz, {foreignKey: 'fk_biz'});
+//====================
+
 db.Biz.belongsTo(db.Category, {foreignKey: 'fk_catId'});
 // db.Offer.belongsTo(db.Biz, {foreignKey: 'fk_bizId'});
 db.Biz.hasMany(db.Offer, {foreignKey: 'fk_bizId'});

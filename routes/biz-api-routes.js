@@ -20,8 +20,8 @@ module.exports = function(app) {
       biz_state: Biz.biz_state,
       biz_lat: Biz.biz_lat,
       biz_long: Biz.biz_long
-
     };
+
     var catcreateob = {
       Category: {
         cat_name: Biz.new_cat
