@@ -128,41 +128,4 @@ module.exports = function(app) {
       // res.send(offers);
     });
   });
-  
-
- 
-
-//   app.get("/offers", function(req, res) {
-//     // res.sendFile(path.join(__dirname + "/../public/add.html"));
-//     db.Offer.findAll({}).then(function(data){
-//       console.log("Offers from DB: ", data);
-//       var offers = { offers: data};
-//       console.log("Offers (hbsObject): ", offers);
-//       res.render('offerListings', offers);
-//     });
-//   });
-
-
-//   // all route loads the all.html page,
-//   // where all characters in the db are displayed
-//   app.get("/biz/:biz_id", function(req, res) {
-//     db.Biz.findById(req.params.biz_id)
-//   .then(function(data){
-//       var business = { business: data};
-//       console.log("Business (hbsObject): ", business);
-//       res.render('biz', business);
-//     });
-//   });
-// };
-
-
-
-//    app.get("/biz", function(req, res) {
-//     // res.sendFile(path.join(__dirname + "/../public/add.html"));
-//     db.Biz.findAll({}).then(function(data){
-//       console.log("data from DB: ", data);
-//       var businesses = { businesses: data};
-//       console.log("Businesses (hbsObject): ", businesses);
-//       res.render('bizListings', businesses);
-//     });
 };
