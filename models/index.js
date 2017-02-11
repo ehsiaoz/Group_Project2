@@ -34,7 +34,7 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 db.Biz.belongsTo(db.Category, {foreignKey: 'fk_catId'});
-db.Offer.belongsTo(db.Biz, {foreignKey: 'fk_bizId'});
-
+// db.Offer.belongsTo(db.Biz, {foreignKey: 'fk_bizId'});
+db.Biz.hasMany(db.Offer, {foreignKey: 'fk_bizId'});
 
 module.exports = db;

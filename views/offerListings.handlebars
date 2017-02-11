@@ -9,7 +9,7 @@
 
 	<p>List of Offers in the DB</p>
 
-
+{{!--
 	<div id="Offers">
 		<h3>Offers</h3>
 		<div class="Offers">
@@ -26,7 +26,7 @@
 
 					{{/each}}
 		</div>
-	</div>
+	</div> --}}
 
 
 <h3>Create an Offer</h3>
@@ -41,7 +41,15 @@
 			<input type="number" id="dealPrice" name="offer_dealPrice"><br>
 			<label for="image">Offer image URL:</label>
 			<input type="text" id="image" name="offer_image"><br>
-			<label for="desc">Street Address:</label>
+
+			<label for="businesses">Choose a Business:</label>
+			<select name="business">
+				<option value="">Select a business</option>
+				{{#each businesses}}
+							<option value={{this.id}}>{{this.biz_name}}</option>
+				{{/each}}
+			</select><br>
+
 			<button id="submit" type="submit">Submit</button>
 		</div>
 	</form>

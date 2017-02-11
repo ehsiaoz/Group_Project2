@@ -14,6 +14,10 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname + "/../public/test.html"));
   });
 
+  app.get("/businesses", function(req, res) {
+    res.sendFile(path.join(__dirname + "/../public/businesses.html"));
+  });
+
   //route to return list of businesses by category
   app.get("/search/:cat_id", function(req, res) {
     var category = req.params.cat_id;
@@ -32,12 +36,21 @@ module.exports = function(app) {
 
   //route to return a specific business listing and it's associating offers
   app.get("/biz/:biz_id", function(req, res) {
-    var bizId = req.params.biz_id
-    db.Biz.findById(bizId)
+    var bizId = req.params.biz_id;
+    console.log("This is bizId: ", bizId);
+    db.Biz.findAll({where: {id: bizId}, include: [db.Offer] })
+
+    // db.Offer.belongsTo(db.Biz, {foreignKey: 'fk_bizId'});
+    // db.Biz.findAll({ where: {id: bizId}, include: [db.Offer] }).then(function(biz){
+    //   console.log(biz)
+
+
+
     .then(function(data){
         console.log("data from DB: ", data);
         var business = { business: data};
         console.log("Business (hbsObject): ", business);
+        console.log("Business Offers: ", business.offer);
         res.render('biz', business);
       });
   });
@@ -59,8 +72,8 @@ module.exports = function(app) {
   });
 
   //route to return a biz listing with a form to create an offer
-  app.get("/api/offers/:bizId", function(req, res) {
-    var bizId = req.body.bizId
+  app.get("/api/offers/:biz_Id", function(req, res) {
+    var bizId = req.body.biz_Id
     db.Offer.findAll({
       where: {
         fk_bizId: bizId
@@ -70,7 +83,16 @@ module.exports = function(app) {
     });
   });
 
-
+  //route to create an offer form
+  app.get("/offers", function(req, res) {
+    // res.sendFile(path.join(__dirname + "/../public/add.html"));
+    db.Biz.findAll({})
+    .then(function(data){
+      var hbsObject = { businesses: data};
+      console.log(hbsObject.businesses)
+      res.render('offerListings', hbsObject);
+    });
+  });
 
 
 
@@ -92,45 +114,18 @@ module.exports = function(app) {
 
   // add route loads the add.html page,
   // where users can enter new characters to the db
-  app.get("/biz", function(req, res) {
-    // res.sendFile(path.join(__dirname + "/../public/add.html"));
-    db.Biz.findAll({}).then(function(data){
-      console.log("data from DB: ", data);
-      var businesses = { businesses: data};
-      console.log("Businesses (hbsObject): ", businesses);
-      res.render('bizListings', businesses);
-    });
-  });
-
-  app.get("/offers", function(req, res) {
-    // res.sendFile(path.join(__dirname + "/../public/add.html"));
-    db.Offer.findAll({}).then(function(data){
-      console.log("Offers from DB: ", data);
-      var offers = { offers: data};
-      console.log("Offers (hbsObject): ", offers);
-      res.render('offerListings', offers);
-    });
-  });
+  // app.get("/biz", function(req, res) {
+  //   // res.sendFile(path.join(__dirname + "/../public/add.html"));
+  //   db.Biz.findAll({}).then(function(data){
+  //     console.log("data from DB: ", data);
+  //     var businesses = { businesses: data};
+  //     console.log("Businesses (hbsObject): ", businesses);
+  //     res.render('bizListings', businesses);
+  //   });
+  // });
 
 
-  // all route loads the all.html page,
-  // where all characters in the db are displayed
-  app.get("/biz/:biz_id", function(req, res) {
-    // res.sendFile(path.join(__dirname + "/../public/all.html"));
 
-    db.Biz.findById(req.params.biz_id)
-    // db.Biz.findOne({
-    //   where: {
-    //     id: req.params.biz_id
-    //   }
-    // }
-  // )
-  .then(function(data){
-      console.log("data from DB: ", data);
-      var business = { business: data};
-      console.log("Business (hbsObject): ", business);
-      res.render('biz', business);
-    });
-  });
+
 
 };
