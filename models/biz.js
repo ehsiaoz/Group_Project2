@@ -12,13 +12,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: true,
       validate: {
-        len: [10]
-      }
-    },
-    biz_cat: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      validate: {
         len: [2]
       }
     },
