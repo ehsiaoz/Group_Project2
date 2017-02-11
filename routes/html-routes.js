@@ -13,6 +13,19 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname + "/../public/test.html"));
   });
+  app.get("/businesses", function(req, res) {
+    res.sendFile(path.join(__dirname + "/../public/businesses.html"));
+  });
+
+  app.get("/biz", function(req, res) {
+    // res.sendFile(path.join(__dirname + "/../public/add.html"));
+    db.Biz.findAll({}).then(function(data){
+      console.log("Here's data from DB: ", data);
+      var businesses = { businesses: data};
+      console.log("Businesses (hbsObject): ", businesses);
+      res.render('bizListings', businesses);
+    });
+  });
 
   //route to return list of businesses by category
   app.get("/search/:category", function(req, res) {
@@ -88,15 +101,7 @@ module.exports = function(app) {
 
   // add route loads the add.html page,
   // where users can enter new characters to the db
-  app.get("/biz", function(req, res) {
-    // res.sendFile(path.join(__dirname + "/../public/add.html"));
-    db.Biz.findAll({}).then(function(data){
-      console.log("data from DB: ", data);
-      var businesses = { businesses: data};
-      console.log("Businesses (hbsObject): ", businesses);
-      res.render('bizListings', businesses);
-    });
-  });
+  
 
   app.get("/offers", function(req, res) {
     // res.sendFile(path.join(__dirname + "/../public/add.html"));
