@@ -1,14 +1,31 @@
-
+	{{#with business}}
 	<p>CREATE AN OFFER FORM</p>
+
+			{{!-- {{#each business}} --}}
+
+	<p>business id = {{id}}</p>
+
+	<form class="create-update-form" action="/createdeal" method="POST">
+		<div class="form-group">
+			<label for="name">deal title:</label>
+			<input type="text" id="name" name="title"><br>
+			<label for="original price">original price:</label>
+			<input type="number" id="desc" name="originalPrice"><br>
+			<label for="deal price">actual price:</label>
+			<input type="number" id="cat" name="dealPrice"><br>
+			<label for="image">image:</label>
+			<input type="text" id="image" name="image"><br>
+			<button id="submit" type="submit">Submit</button>
+		</div>
+	</form>
 
 
 	<div id="Businesses">
-		<h3>Business</h3>
+		<h3>Business Info:</h3>
 
 		<h1>insert create offer form here</h1>
 
 		<div class="Businesses">
-		{{#with business}}
 			{{!-- {{#each business}} --}}
 
 							<div class="bizResult">
@@ -28,6 +45,7 @@
 					{{!-- {{/each}} --}}
 
 
-		{{/with}}
+	
 		</div>
 	</div>
+{{/with}}

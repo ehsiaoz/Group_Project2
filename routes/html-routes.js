@@ -71,13 +71,29 @@ module.exports = function(app) {
   //===================================================
   //j routes
   //get route from individual business page to create deal
-  app.get('/create/offer/:id', function(request, response){
-    db.Biz.findById(request.params.id)
+  app.get('/create/offer/:business_id', function(request, response){
+    db.Biz.findById(request.params.business_id)
     .then(function(data){
       var business = { business: data};
       console.log("Business data to create offer form: ", business);
       response.render('createoffer', business);
     });
+  });
+
+  //create deal
+  app.post("/createdeal", function(request, response) {
+    var deal = request.body;
+    console.log("deal information: ", deal);
+    
+      db.Offer.create({
+        offer_title: deal.title,
+        offer_origPrice: deal.originalPrice,
+        offer_dealPrice: deal.dealPrice,
+        offer_image: deal.image
+      }).then(function(data) {
+        //redirect to this businesses' page (will show updated deals)
+        // res.redirect('/biz');
+      });
   });
   //end of j routes
   //===================================================
