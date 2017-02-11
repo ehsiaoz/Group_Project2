@@ -19,7 +19,6 @@ module.exports = function(app) {
   //route to return list of businesses by category
   app.get("/search/:cat_id", function(req, res) {
     var category = req.params.cat_id;
-
     db.Biz.findAll({
       where: {
         fk_catId: category
