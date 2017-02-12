@@ -17,10 +17,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     offer_dealPrice: {
       type: DataTypes.FLOAT,
-      allowNull: true,
-      validate: {
-        isNumeric: true
-      }
+      allowNull: true
     },
     offer_image: {
       type: DataTypes.STRING,
