@@ -1,22 +1,46 @@
 $(document).ready(function() { 
 
-  var businessContainer = $("#business-list");
+  var businessContainer = $("#business-list"),
+      categoryContainer = $("#category-list");
 
   function getBusinesses() {
     $.get("/api/businesses", function(data) {
       businesses = data;
       console.log("List", data);
-      initializeWaiting();
+      initializePanels();
     });
   }
   
-  function initializeWaiting() {
+  function getCategories() {
+    $.get("/api/categories", function(data) {
+      categories = data;
+      initializeDrop();
+    });
+  }
+  $('#category-list').on('change', function (e) {
+     var category = $('#category-list').val();
+     $.get("/api/businesses/"+category, function(data) {
+      businesses = data;
+      console.log("List", data);
+      initializePanels();
+    });
+  });
+  function initializePanels() {
     businessContainer.empty();
     var businessesToAdd = [];
     for (var i = 0; i <businesses.length; i++) {
       businessesToAdd.push(createNewRow(businesses[i]));
     }
     businessContainer.append(businessesToAdd);
+  }
+  function initializeDrop() {
+    categoryContainer.empty();
+    categoryContainer.append('<option value="">All</option>')
+    var categoriesToAdd = [];
+    for (var i = 0; i <categories.length; i++) {
+      categoriesToAdd.push(createNewOption(categories[i]));
+    }
+    categoryContainer.append(categoriesToAdd);
   }
 
   // This function constructs a post's HTML
@@ -26,15 +50,9 @@ $(document).ready(function() {
     newPostPanel.addClass("panel panel-default");
     var newPostPanelHeading = $("<div>");
     newPostPanelHeading.addClass("panel-heading");
-    var deleteBtn = $("<button>");
-    deleteBtn.text("x");
-    deleteBtn.addClass("delete btn btn-danger");
-    var editBtn = $("<button>");
-    editBtn.text("EDIT");
-    editBtn.addClass("edit btn btn-default");
     var newPostTitle = $("<h2>");
    
-    var newPostCategory = $("<h5>");
+    var newPostCategory = $("<h3>");
     newPostCategory.text(post.category);
     newPostCategory.css({
       float: "right",
@@ -48,9 +66,6 @@ $(document).ready(function() {
     newPostTitle.text(post.biz_name + " ");
     newPostBody.text(post.biz_desc);
    
-   
-    newPostPanelHeading.append(deleteBtn);
-    newPostPanelHeading.append(editBtn);
     newPostPanelHeading.append(newPostTitle);
     newPostPanelHeading.append(newPostCategory);
     newPostPanelBody.append(newPostBody);
@@ -59,9 +74,16 @@ $(document).ready(function() {
     newPostPanel.data("post", post);
     return newPostPanel;
   }
+  function createNewOption(post) {
+    var newDropPanel = $("<option>");
+    newDropPanel.attr("value", post.id);
+    newDropPanel.text(post.cat_name);
+    return newDropPanel;
+  }
 
   // Getting jQuery references to the post body, title, form, and category select
   var bodyInput = $("#bn");
+
 
   $("#createBurger").on("submit", function handleFormSubmit(event) {
     event.preventDefault();
@@ -114,5 +136,6 @@ $(document).ready(function() {
   }
 
   getBusinesses();
+  getCategories();
 
 });
