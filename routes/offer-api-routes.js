@@ -27,6 +27,11 @@ module.exports = function(app) {
     app.post("/api/offer", function(req, res) {
 
       var Offer = req.body;
+
+      if ( Offer.offer_dealPrice == '' ) {
+        Offer.offer_dealPrice = Offer.offer_origPrice;
+      }
+
       db.Offer.create({
         offer_title: Offer.offer_title,
         offer_origPrice: Offer.offer_origPrice,
