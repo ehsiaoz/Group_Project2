@@ -24,6 +24,17 @@ module.exports = function(app) {
       res.json(dbPost);
     });
   });
+  app.get("/api/search/:name", function(req, res) {
+  	var bizname = req.params.name;
+    db.Biz.findAll({
+    	where: {
+        biz_name: bizname
+      }
+    })
+    .then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
 
   app.get("/api/categories", function(req, res) {
     db.Category.findAll({

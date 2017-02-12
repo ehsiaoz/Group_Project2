@@ -44,6 +44,13 @@
   </header>
   <main class="container-fluid">
     <h1>List of Businesses</h1>
+    <form id="search-business" action="/" method="GET">
+		<div class="form-group has-success has-feedback">
+			<label for="biz_name">Business Name Search:</label>
+			<input type="text" class="form-control" id="biz_name" name="biz_name">
+		</div>
+		<button class="btn btn-success" id="submit" type="submit">Submit</button>
+	</form>
     <div id="select-category">
 		<label for="category-list">Filter by Category: </label>
 		<select name="category-list" id="category-list"></select>
