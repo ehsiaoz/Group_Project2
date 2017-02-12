@@ -27,6 +27,9 @@ module.exports = function(app) {
 
   app.get("/api/categories", function(req, res) {
     db.Category.findAll({
+    	order: [
+            ['cat_name', 'ASC'],
+        ]
     })
     .then(function(dbPost) {
       res.json(dbPost);
