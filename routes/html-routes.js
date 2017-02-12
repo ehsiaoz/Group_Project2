@@ -40,7 +40,7 @@ module.exports = function(app) {
   app.get("/biz/:biz_id", function(req, res) {
     var bizId = req.params.biz_id;
     console.log("This is bizId: ", bizId);
-    db.Biz.findAll({where: {id: bizId}, include: [db.Offer] })
+    db.Biz.find({where: {id: bizId}, include: [db.Offer] })
 
     // db.Offer.belongsTo(db.Biz, {foreignKey: 'fk_bizId'});
     // db.Biz.findAll({ where: {id: bizId}, include: [db.Offer] }).then(function(biz){
@@ -50,7 +50,7 @@ module.exports = function(app) {
         console.log("data from DB: ", data);
         var business = { business: data};
         console.log("Business (hbsObject): ", business);
-        console.log("Business Offers: ", business.offer);
+        console.log("Business Offers: ", business.business);
         res.render('biz', business);
       });
   });
