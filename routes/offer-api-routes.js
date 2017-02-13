@@ -20,7 +20,7 @@ module.exports = function(app) {
           offer_origPrice: Offer.originalPrice,
           offer_dealPrice: Offer.dealPrice,
           offer_image: Offer.image,
-          fk_biz: bizId
+          fk_bizId: bizId
         }).then(function(data) {
         res.redirect('/biz/'+ bizId);
       });
@@ -30,7 +30,7 @@ module.exports = function(app) {
           offer_origPrice: Offer.originalPrice,
           offer_dealPrice: Offer.dealPrice,
           offer_image: Offer.image,
-          fk_biz: bizId
+          fk_bizId: bizId
         }).then(function(data) {
         res.redirect('/biz/'+ bizId);
       });
