@@ -8,6 +8,9 @@ module.exports = function(app) {
 
   app.get("/api/businesses", function(req, res) {
     db.Biz.findAll({
+      order: [
+        ['biz_name', 'ASC'],
+      ]
     })
     .then(function(dbPost) {
       res.json(dbPost);
