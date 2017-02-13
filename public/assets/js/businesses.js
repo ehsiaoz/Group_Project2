@@ -22,6 +22,7 @@ $(document).ready(function() {
      $.get("/api/businesses/"+category, function(data) {
       businesses = data;
       initializePanels();
+      $('#biz_name').val('');
     });
   });
   $('#search-business').on('submit', function (event) {
@@ -58,8 +59,7 @@ $(document).ready(function() {
     newPostPanel.addClass("panel panel-default");
     var newPostPanelHeading = $("<div>");
     newPostPanelHeading.addClass("panel-heading");
-    var newPostTitle = $("<h2>");
-   
+    var newPostTitle = '<h2><a href="/biz/' + post.id + '">' + post.biz_name + '</a></h2>';
     var newPostCategory = $("<h3>");
     newPostCategory.text(post.category);
     newPostCategory.css({
@@ -71,7 +71,6 @@ $(document).ready(function() {
     var newPostPanelBody = $("<div>");
     newPostPanelBody.addClass("panel-body");
     var newPostBody = $("<p>");
-    newPostTitle.text(post.biz_name + " ");
     newPostBody.text(post.biz_desc);
    
     newPostPanelHeading.append(newPostTitle);
