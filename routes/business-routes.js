@@ -28,8 +28,10 @@ module.exports = function(app) {
   	var bizname = req.params.name;
     db.Biz.findAll({
     	where: {
-        biz_name: bizname
-      }
+	      biz_name: {
+	        $like: '%'+bizname+'%',
+	      }
+      	}
     })
     .then(function(dbPost) {
       res.json(dbPost);

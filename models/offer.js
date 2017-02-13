@@ -12,12 +12,12 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.FLOAT,
       allowNull: false,
       validate: {
-        isNumeric: true
+        isDecimal: true
       }
     },
     offer_dealPrice: {
       type: DataTypes.FLOAT,
-      allowNull: true
+      allowNull: true,
     },
     offer_image: {
       type: DataTypes.STRING,
