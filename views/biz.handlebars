@@ -24,6 +24,10 @@
 			<div class = 'business-attribute'>
 				<span class = 'desc-label'>what we do:</span>
 				<span class = 'desc-content'>{{biz_desc}}</span>
+				<p>lat: {{biz_lat}}</p>
+				{{#if biz_lat}}
+				 <iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q={{biz_lat}},{{biz_long}}&amp;key=AIzaSyCHIwflHyQ2bFuxjJFZ-6kWdy-SBLyxBfs"></iframe>
+				{{/if}}
 			</div>
 			<!-- <p class="bizLat">Geo Lat: {{this.biz_lat}}</p>
 					<p class="bizLong">Geo Long: {{this.biz_long}}</p>
@@ -72,8 +76,8 @@
 				</div>
 			</div> -->
 		</div>
-		<!-- <form id = 'create-deal' action = '/create/offer/{{id}}' method = 'GET'> -->
-							<form id = 'create-deal' action = '/api/offers//new/{{id}}' method = 'GET'>
+		 <form id = 'create-deal' action = '/create/offer/{{id}}' method = 'GET'> 
+							<!--<form id = 'create-deal' action = '/api/offers/new/{{id}}' method = 'GET'>-->
 						<button id='deal-button' type = 'submit' title = 'create deal'>create deal</button>
 					</form>
 					<p class="bizLat">Geo Lat: {{biz_lat}}</p>

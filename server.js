@@ -33,7 +33,7 @@ require("./routes/offer-api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 require("./routes/business-routes.js")(app);
 
-// Syncing our sequelize models and then starting our express app
+// Syncing our sequelize models and then start    ing our express app
 //force true overwrites the local table
 //force false keeps the table data you've put in the table after restarting the server
 db.sequelize.sync({ force: true }).then(function() {

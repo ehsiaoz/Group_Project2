@@ -13,4 +13,37 @@ module.exports = function(app) {
       res.json(dbPost);
     });
   });
+  app.get("/api/businesses/:foreign", function(req, res) {
+  	var category = req.params.foreign;
+    db.Biz.findAll({
+    	where: {
+        fk_catId: category
+      }
+    })
+    .then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
+  app.get("/api/search/:name", function(req, res) {
+  	var bizname = req.params.name;
+    db.Biz.findAll({
+    	where: {
+        biz_name: bizname
+      }
+    })
+    .then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
+
+  app.get("/api/categories", function(req, res) {
+    db.Category.findAll({
+    	order: [
+            ['cat_name', 'ASC'],
+        ]
+    })
+    .then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
 };

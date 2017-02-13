@@ -1,22 +1,54 @@
 $(document).ready(function() { 
 
-  var businessContainer = $("#business-list");
+  var businessContainer = $("#business-list"),
+      categoryContainer = $("#category-list");
 
   function getBusinesses() {
     $.get("/api/businesses", function(data) {
       businesses = data;
       console.log("List", data);
-      initializeWaiting();
+      initializePanels();
     });
   }
   
-  function initializeWaiting() {
+  function getCategories() {
+    $.get("/api/categories", function(data) {
+      categories = data;
+      initializeDrop();
+    });
+  }
+  $('#category-list').on('change', function () {
+     var category = $('#category-list').val();
+     $.get("/api/businesses/"+category, function(data) {
+      businesses = data;
+      initializePanels();
+    });
+  });
+  $('#search-business').on('submit', function (event) {
+    event.preventDefault();
+    var bizname = $('#biz_name').val();
+    $.get("/api/search/"+bizname, function(data) {
+      businesses = data;
+      initializePanels();
+    });
+  });
+  
+  function initializePanels() {
     businessContainer.empty();
     var businessesToAdd = [];
     for (var i = 0; i <businesses.length; i++) {
       businessesToAdd.push(createNewRow(businesses[i]));
     }
     businessContainer.append(businessesToAdd);
+  }
+  function initializeDrop() {
+    categoryContainer.empty();
+    categoryContainer.append('<option value="">All</option>')
+    var categoriesToAdd = [];
+    for (var i = 0; i <categories.length; i++) {
+      categoriesToAdd.push(createNewOption(categories[i]));
+    }
+    categoryContainer.append(categoriesToAdd);
   }
 
   // This function constructs a post's HTML
@@ -26,15 +58,9 @@ $(document).ready(function() {
     newPostPanel.addClass("panel panel-default");
     var newPostPanelHeading = $("<div>");
     newPostPanelHeading.addClass("panel-heading");
-    var deleteBtn = $("<button>");
-    deleteBtn.text("x");
-    deleteBtn.addClass("delete btn btn-danger");
-    var editBtn = $("<button>");
-    editBtn.text("EDIT");
-    editBtn.addClass("edit btn btn-default");
     var newPostTitle = $("<h2>");
    
-    var newPostCategory = $("<h5>");
+    var newPostCategory = $("<h3>");
     newPostCategory.text(post.category);
     newPostCategory.css({
       float: "right",
@@ -48,9 +74,6 @@ $(document).ready(function() {
     newPostTitle.text(post.biz_name + " ");
     newPostBody.text(post.biz_desc);
    
-   
-    newPostPanelHeading.append(deleteBtn);
-    newPostPanelHeading.append(editBtn);
     newPostPanelHeading.append(newPostTitle);
     newPostPanelHeading.append(newPostCategory);
     newPostPanelBody.append(newPostBody);
@@ -59,60 +82,14 @@ $(document).ready(function() {
     newPostPanel.data("post", post);
     return newPostPanel;
   }
-
-  // Getting jQuery references to the post body, title, form, and category select
-  var bodyInput = $("#bn");
-
-  $("#createBurger").on("submit", function handleFormSubmit(event) {
-    event.preventDefault();
-    // Wont submit the post if we are missing a body
-    if (!bodyInput.val().trim()) {
-      return;
-    }
-    // Constructing a newPost object to hand to the database
-    var newBurger = {
-      burger_name: bodyInput.val().trim(),
-    };
-
-    submitBurger(newBurger);
-    bodyInput.val('');
-
-  });
-  $("#waiting").on("click", ".devoure-it", function() {
-    event.preventDefault();  
-    // Constructing a newPost object to hand to the database
-    var currentBurger = $(this)
-    .parent()
-    .data("burger");
-
-    var newBurger = {
-      devoured: true,
-      id: currentBurger.id
-    };
-    updateBurger(newBurger);
-
-  });
-
-  // Submits a new burger
-  function submitBurger(Burger) {
-    $.post("/api/burgers/", Burger, function() {
-      getBurgers();
-      getDevoured();
-    });
-  }
-  // Update a given post, bring user to the blog page when done
-  function updateBurger(burger) {
-    $.ajax({
-      method: "PUT",
-      url: "/api/burgers/",
-      data: burger
-    })
-    .done(function() {
-      getBurgers();
-      getDevoured();
-    });
+  function createNewOption(post) {
+    var newDropPanel = $("<option>");
+    newDropPanel.attr("value", post.id);
+    newDropPanel.text(post.cat_name);
+    return newDropPanel;
   }
 
   getBusinesses();
+  getCategories();
 
 });

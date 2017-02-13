@@ -11,13 +11,13 @@ module.exports = function(sequelize, DataTypes) {
     offer_origPrice: {
       type: DataTypes.FLOAT,
       allowNull: false,
+      validate: {
+        isNumeric: true
+      }
     },
     offer_dealPrice: {
       type: DataTypes.FLOAT,
-      allowNull: true,
-      validate: {
-        len: [2]
-      }
+      allowNull: true
     },
     offer_image: {
       type: DataTypes.STRING,
