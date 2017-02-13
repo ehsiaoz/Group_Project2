@@ -9,6 +9,21 @@
   <!-- for font awesome icons: -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+  #typeahead-module .twitter-typeahead .tt-menu {
+    background: #fff !important;
+    padding: 0 1em 1em 1em;
+    margin-bottom: 1em;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-radius: 5px;
+  }  
+  #typeahead-module .twitter-typeahead .tt-menu .tt-suggestion {
+    border-bottom: 1px solid #ccc;
+    padding: 0.5em 0;
+  }
+  </style>
 </head>
 
 <body>
@@ -54,9 +69,9 @@
   <main class="container-fluid">
     <h1>List of Businesses</h1>
     <form id="search-business" action="/" method="GET">
-		<div class="form-group has-success has-feedback">
+		<div class="form-group has-success has-feedback" id="typeahead-module">
 			<label for="biz_name">Business Name Search:</label>
-			<input type="text" class="form-control" id="biz_name" name="biz_name">
+			<input type="text" class="form-control typeahead" id="biz_name" name="biz_name">
 		</div>
 		<button class="btn btn-success" id="submit" type="submit">Submit</button>
 	</form>
@@ -67,6 +82,8 @@
     <div id="business-list"></div>
   </main>
   <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="assets/js/typeahead.jquery.min.js" type="text/javascript"></script>
+  <script src="assets/js/type-ahead.js" type="text/javascript"></script>
   <script src="assets/js/businesses.js" type="text/javascript"></script>
 </body>
 
