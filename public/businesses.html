@@ -13,30 +13,33 @@
 
 <body>
   <header>
-    <div id='header-top'>
-      <div class='fit-95'>
-        <span id='our-name'>enhajoList
+    <div id = 'header-top'>
+      <div class = 'fit-95'>
+        <span id = 'our-name'>enhajoList
         </span>
-        <div id='search-container'>
-          <form id='search-form-1' action='/api/search' method='GET'>
-            <input type='text' name='business_input' placeholder='business or category' id='search-input-business' class='search-input'>
-            <input type='text' name='location_input' placeholder='location' id='search-input-location' class='search-input'>
-            <button id='search-button' type='submit' title='search businesses'><i class="fa fa-search" id='search-icon' aria-hidden="true"></i></button>
+        <div id = 'search-container'>
+          <form id = 'search-form-1' action = '/api/search' method = 'GET'>
+            <input type = 'text' name = 'business_input' placeholder = 'business or category' id = 'search-input-business' class='search-input'>
+            <input type = 'text' name = 'location_input' placeholder = 'location' id = 'search-input-location' class='search-input'>
+            <button id='search-button' type = 'submit' title = 'search businesses'><i class="fa fa-search" id='search-icon' aria-hidden="true"></i></button>
           </form>
         </div>
       </div>
     </div>
-    <div id='header-bottom'>
-      <div class='fit-95'>
-        <div id='admin-button' class='dropdown'>admin
-          <div class='dropdown-content'>
-            <!-- app.get("/create/biz" -->
-            <a href='' target=''>
-              <form id='create-business' action='/create/biz' method='GET'>
-                <button id='create-business-button' type='submit' title='create business'>add business</button>
+    <div id = 'header-bottom'>
+      <div class = 'fit-95'>
+        <div id = 'admin-button' class = 'dropdown'>admin
+          <div class = 'dropdown-content'>
+            <a href = '' target = ''>
+              <form id = 'create-business' action = '/create/biz' method = 'GET'>
+                <button class = 'create-newbizdeal-button' id='create-business-button' type = 'submit' title = 'create business'>add business</button>
               </form>
             </a>
-            <a href='' target='_blank'>add deal</a>
+            <a href = '' target = ''>
+              <form id = 'create-deal' action = '/offers' method = 'GET'>
+                <button class = 'create-newbizdeal-button' id='create-deal-button' type = 'submit' title = 'create deal'>add deal</button>
+              </form>
+            </a>
           </div>
         </div>
       </div>

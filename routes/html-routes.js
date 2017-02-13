@@ -13,7 +13,7 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     //show search bar to pick categories
     //maybe display list of businesses
-    res.sendFile(path.join(__dirname + "/../public/test.html"));
+    res.sendFile(path.join(__dirname + "/../public/businesses.html"));
   });
 
   app.get("/businesses", function(req, res) {
@@ -47,7 +47,6 @@ module.exports = function(app) {
     //   console.log(biz)
 
     .then(function(data){
-        console.log("data from DB: ", data);
         var business = { business: data};
         console.log("Business (hbsObject): ", business);
         console.log("Business Offers: ", business.business);
@@ -79,7 +78,7 @@ module.exports = function(app) {
     db.Biz.findAll({})
     .then(function(data){
       var hbsObject = { businesses: data};
-      console.log(hbsObject.businesses)
+      console.log(hbsObject.businesses);
       res.render('offerListings', hbsObject);
     });
   });

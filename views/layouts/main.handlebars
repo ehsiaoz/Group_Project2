@@ -28,20 +28,23 @@
       <div class = 'fit-95'>
         <div id = 'admin-button' class = 'dropdown'>admin
           <div class = 'dropdown-content'>
-          <!-- app.get("/create/biz" -->
             <a href = '' target = ''>
               <form id = 'create-business' action = '/create/biz' method = 'GET'>
-                <button id='create-business-button' type = 'submit' title = 'create business'>add business</button>
+                <button class = 'create-newbizdeal-button' id='create-business-button' type = 'submit' title = 'create business'>add business</button>
               </form>
             </a>
-            <a href = '' target = '_blank'>add deal</a>
+            <a href = '' target = ''>
+              <form id = 'create-deal' action = '/offers' method = 'GET'>
+                <button class = 'create-newbizdeal-button' id='create-deal-button' type = 'submit' title = 'create deal'>add deal</button>
+              </form>
+            </a>
           </div>
         </div>
       </div>
     </div>
   </header>
 
-<div class="container-fluid" style = "margin-top:25px;">
+<div class="container-fluid" style = "margin-top:25px; margin-bottom:35px;">
   
 {{{ body }}}
 

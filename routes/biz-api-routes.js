@@ -40,14 +40,14 @@ module.exports = function(app) {
 
       if (!Biz.categories && Biz.new_cat) {
         db.Biz.create(Object.assign({}, bizzob, catcreateob) , { include: [db.Category]}).then(function(data) {
-          res.redirect('/biz');
+          res.redirect('/businesses');
         });
       }
 
       if(Biz.categories) {
         var bb = Object.assign({}, bizzob,  {fk_catId: parseInt(Biz.categories)})
         db.Biz.create(bb).then(function(data) {
-          res.redirect('/biz');
+          res.redirect('/businesses');
         });
       }
 

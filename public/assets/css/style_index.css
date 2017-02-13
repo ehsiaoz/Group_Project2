@@ -121,41 +121,41 @@ header{
 }
 
 #our-name-bottom:hover{
-	-webkit-animation: spin 2s ease 0s infinite; /* Safari and Chrome */
-    -moz-animation: spin 2s ease 0s infinite; /* Firefox */
-    -ms-animation: spin 2s ease 0s infinite; /* Internet Explorer */
-    -o-animation: spin 2s ease 0s infinite; /* Opera */
+	-webkit-animation: spin 1s ease 0s infinite; /* Safari and Chrome */
+    -moz-animation: spin 1s ease 0s infinite; /* Firefox */
+    -ms-animation: spin 1s ease 0s infinite; /* Internet Explorer */
+    -o-animation: spin 1s ease 0s infinite; /* Opera */
     animation: spin 1s linear 0s infinite;
 }
 
 /* Safari and Chrome */
 @-webkit-keyframes spin {
     0% {opacity:1; }
-	100% { transform: rotate3d(1, -1, -1,360deg);opacity:1;}
+	100% { transform: rotate(360deg);opacity:1;}
 }
 
 /* Firefox */
 @-moz-keyframes spin {
 	0% {opacity:1; }
-	100% { transform: rotate3d(1, -1, -1,360deg);opacity:1;}
+	100% { transform: rotate(360deg);opacity:1;}
 }
 
 /* Internet Explorer */
 @-ms-keyframes spin {
 	0% {opacity:1; }
-	100% { transform: rotate3d(1, -1, -1,360deg);opacity:1;}
+	100% { transform: rotate(360deg);opacity:1;}
 }
 
 /* Opera */
 @-o-keyframes spin {
     0% {opacity:1; }
-	100% { transform: rotate3d(1, -1, -1,360deg);opacity:1;}
+	100% { transform: rotate(360deg);opacity:1;}
 }
 
 @keyframes spin {
 	0% {opacity:1; }
 	50% {color: red;}
-	100% { transform: rotate3d(1, -1, -1,360deg);opacity:1;}
+	100% { transform: rotate(360deg); opacity:1;}
 }
 
 #search-container{
@@ -347,7 +347,7 @@ header{
 	background-color:rgb(15, 15, 15);
 }
 
-#create-business-button{
+.create-newbizdeal-button{
 	padding:0;
 	border:0;
 }
