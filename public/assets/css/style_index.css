@@ -353,6 +353,26 @@ header{
 	border:0;
 }
 
+#eliminate-whitespace{
+	font-size:0;
+}
+
+#primary-business-info{
+	width:80%;
+	display:inline-block;
+}
+
+#deal-container{
+	display:inline-block;
+	width:20%;
+	min-width: 200px;
+	max-width:250px;
+	min-height: 300px;
+	background-color:purple;
+	vertical-align: top;
+	margin-top:30px;
+}
+
 #business-name{
 	display: inline-block;
 	margin: 20px 0 15px;
@@ -362,41 +382,11 @@ header{
 	text-transform: uppercase;
 }
 
-#edit-business-info-button{
-	display: inline-block;
-	opacity:0;
-	cursor: pointer;
-	margin-left:15px;
-	font-size:15px;
-	padding:3px;
-	border : 2px solid purple;
-	background-color: rgb(245, 245, 245);
-	color: rgb(0, 0, 0);
-	border-radius: 5px;
-	vertical-align:text-bottom;
-	/*use box-sizing border-box so border is inside the div*/
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transition: all 0.2s ease 0s;
-	-moz-transition: all 0.2s ease 0s;
-	transition: all 0.2s ease 0s;
-}
-
-#edit-business-info-button:hover{
-	opacity:1;
-}
-
-#edit-business-info-button:active{
-	color: rgb(255, 255, 255);
-	background-color: purple;
-	border-color:lime;
-}
-
 #business-image{
 	display: inline-block;
 	width: 35%;
-	min-width: 250px;
+	min-width: 275px;
+	max-width: 350px;
 	height: 250px;
 	border: 2px solid rgb(21, 21, 21);
 	margin-right: 3%;
@@ -419,12 +409,11 @@ header{
 	display: inline-block;
 	vertical-align: top;
 	width: 60%;
-	min-width: 350px;
+	min-width:250px;
 }
 
 .business-attribute{
 	margin-bottom: 8px;
-
 }
 
 .desc-label{
@@ -437,6 +426,12 @@ header{
 .desc-content{
 	font-size: 17px;
 	color: rgb(21, 21, 21);
+}
+
+#individual-business-map{
+	width: 50%;
+	min-width: 275px;
+	height:250px;
 }
 
 
@@ -475,8 +470,38 @@ header{
 	border-radius: 0 0 5px 5px;
 	margin:0;
 }
-/*END OF TO BE USED LATER
-========================================*/
+
+.edit-business-info-button{
+	display: inline-block;
+	opacity:0;
+	cursor: pointer;
+	margin-left:15px;
+	font-size:15px;
+	padding:3px;
+	border : 2px solid purple;
+	background-color: rgb(245, 245, 245);
+	color: rgb(0, 0, 0);
+	border-radius: 5px;
+	vertical-align:text-bottom;
+	/*use box-sizing border-box so border is inside the div*/
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.2s ease 0s;
+	-moz-transition: all 0.2s ease 0s;
+	transition: all 0.2s ease 0s;
+}
+
+.edit-business-info-button:hover{
+	opacity:1;
+}
+
+.edit-business-info-button:active{
+	color: rgb(255, 255, 255);
+	background-color: purple;
+	border-color:lime;
+}
+
 
 
 footer{
