@@ -78,7 +78,7 @@ module.exports = function(app) {
     db.Biz.findAll({})
     .then(function(data){
       var hbsObject = { businesses: data};
-      console.log(hbsObject.businesses)
+      console.log(hbsObject.businesses);
       res.render('offerListings', hbsObject);
     });
   });
