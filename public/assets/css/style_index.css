@@ -76,7 +76,7 @@ header{
 
 #header-bottom{
 	width: 100%;
-	height:30px;
+	height:32px;
 	background-color: rgba(55, 55, 55, 1);
 	border-bottom: 2px solid rgba(80, 80, 80, 1);
 	box-shadow: 0 5px 11px 0 rgb(75, 75, 75);
@@ -87,6 +87,7 @@ header{
 	font-size: 20px;
 	font-weight: bold;
 	color: rgba(255, 255, 255, 1);
+	margin-left:12px;
 	/*line-height same as height of parent to vertically center*/
 	line-height:45px;
 	text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 25px rgb(255, 255, 255), 0 0 5px rgb(150, 150, 150);
@@ -346,6 +347,39 @@ header{
 .dropdown-content button:hover{
 	color:rgb(235, 235, 235);
 	background-color:rgb(15, 15, 15);
+}
+
+.bheader-form{
+	display: inline;
+	font-size: 0;
+}
+
+.main-nav-link{
+	/*in order to use z-index so the box-shadow appears in front on hover, make position: relative*/
+	position: relative;
+	z-index:1;
+	font-size: 17px;
+    border: 0;
+    margin: 0;
+    padding: 0 12px;
+    vertical-align: top;
+    line-height: 30px;
+    background-color: rgba(55, 55, 55, 1);
+    color: rgb(235, 235, 235);
+    border-radius: 5px;
+
+/*	text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 25px rgb(255, 255, 255), 0 0 5px rgb(150, 150, 150);
+*/	-webkit-transition: all 0.5s ease 0s;
+	-moz-transition: all 0.5s ease 0s;
+	transition: all 0.5s ease 0s;
+}
+
+.main-nav-link:hover{
+	z-index:2;
+	color: rgb(255, 255, 255);
+	background-color: rgba(10, 10, 10, 1);
+	text-shadow: 1px 1px 2px purple, 0 0 35px white, 0 0 15px purple;
+	box-shadow: 3px 3px 5px 0 rgb(200, 200, 200);
 }
 
 .create-newbizdeal-button{
