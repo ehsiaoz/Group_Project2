@@ -5,8 +5,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	// spinIcon('search-icon');
 });
 
-var backgroundImages = ['jn_0322.JPG', 'jn_0324.JPG', 'jn_3516.JPG', 'jn_3604.JPG', 'jn_4677.JPG'];
-
 function spinIcon(icon){
 	document.getElementById(icon).parentNode.addEventListener('mouseenter', function(event){
 		document.getElementById(icon).classList.add('fa-spin');
@@ -15,4 +13,3 @@ function spinIcon(icon){
 		document.getElementById(icon).classList.remove('fa-spin');
 	});
 }
-

@@ -74,6 +74,10 @@ header{
     background: linear-gradient(rgba(20, 20, 20, 1), rgba(55, 55, 55, 1)); /* Standard syntax */
 }
 
+#header-top .fit-95{
+	min-width:600px;
+}
+
 #header-bottom{
 	width: 100%;
 	height:32px;
@@ -166,7 +170,7 @@ header{
 	margin: 7.5px 0 7.5px 50px;
 }
 
-#search-form-1{
+#search-form-top{
 	width: 415px;
 	font-size:0;
 }
@@ -186,7 +190,7 @@ header{
 	transition: all 0.5s ease 0s;
 }
 
-#search-input-business{
+#search-input-business-top{
 	border-radius: 5px 0 0 5px
 }
 
@@ -196,6 +200,7 @@ header{
 
 .search-input:hover{
 	background-color: rgba(255, 255, 255, 1);
+	box-shadow: 0 0 11px 3px purple;
 }
 
 .search-input:focus {
@@ -366,7 +371,7 @@ header{
     line-height: 30px;
     background-color: rgba(55, 55, 55, 1);
     color: rgb(235, 235, 235);
-    border-radius: 5px;
+    border-radius: 7px;
 
 /*	text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 25px rgb(255, 255, 255), 0 0 5px rgb(150, 150, 150);
 */	-webkit-transition: all 0.5s ease 0s;
@@ -392,19 +397,10 @@ header{
 }
 
 #primary-business-info{
-	width:80%;
+	width:75%;
+	min-width: 600px;
+	padding-bottom:20px;
 	display:inline-block;
-}
-
-#deal-container{
-	display:inline-block;
-	width:20%;
-	min-width: 200px;
-	max-width:250px;
-	min-height: 300px;
-	background-color:purple;
-	vertical-align: top;
-	margin-top:30px;
 }
 
 #business-name{
@@ -414,13 +410,24 @@ header{
 	color: rgb(25, 25, 25);
 	text-shadow: 1.5px 1.5px 2px rgb(100, 100, 100), 0 0 20px rgb(215, 215, 215);
 	text-transform: uppercase;
+	width:93%;
+	border-radius:5px;
+	-webkit-transition: all 0.5s ease 0s;
+	-moz-transition: all 0.5s ease 0s;
+	transition: all 0.5s ease 0s;
+}
+
+#business-name:hover{
+	background-color: rgb(55, 55, 55);
+	color: rgb(230, 230, 230);
+	text-shadow: 2px 2px 1px rgb(0, 0, 0), 3.5px 3.5px 2px rgb(100, 100, 100), 0 0 20px rgb(215, 215, 215);
+	box-shadow: 5px 5px 5px 0 rgb(165, 165, 165);
 }
 
 #business-image{
 	display: inline-block;
-	width: 35%;
+	width: 45%;
 	min-width: 275px;
-	max-width: 350px;
 	height: 250px;
 	border: 2px solid rgb(21, 21, 21);
 	margin-right: 3%;
@@ -439,10 +446,18 @@ header{
 	border: 2px solid rgb(200, 200, 200);
 }
 
+#individual-business-map{
+	display: inline-block;
+	vertical-align: top;
+	width: 45%;
+	min-width: 275px;
+	height:250px;
+}
+
 #business-information{
 	display: inline-block;
 	vertical-align: top;
-	width: 60%;
+	width: 100%;
 	min-width:250px;
 }
 
@@ -450,35 +465,60 @@ header{
 	margin-bottom: 8px;
 }
 
-.desc-label{
-	font-size: 17px;
+.business-create-update{
+	margin-bottom:2px;
+	opacity: 0.05;
 	color: black;
-	font-weight: bold;
-	margin-right: 10px;
+	-webkit-transition: all 0.7s ease 0s;
+	-moz-transition: all 0.7s ease 0s;
+	transition: all 0.7s ease 0s;
 }
 
-.desc-content{
-	font-size: 17px;
-	color: rgb(21, 21, 21);
+.business-create-update:hover{
+	opacity: 0.65;
 }
 
-#individual-business-map{
-	width: 50%;
-	min-width: 275px;
-	height:250px;
+#deal-container{
+	display:inline-block;
+	width:25%;
+	min-width: 200px;
+	max-width:250px;
+	min-height: 450px;
+	vertical-align: top;
+	margin-top:20px;
+	font-size:20px;
+	color: black;
+	text-align:center;
+	border-radius:8px;
+	-webkit-transition: all 0.5s ease 0s;
+	-moz-transition: all 0.5s ease 0s;
+	transition: all 0.5s ease 0s;
 }
 
+#deal-container:hover{
+	background-color:purple;
+	color: rgb(220, 220, 220);
+	box-shadow: 3px 3px 5px 0 rgb(55, 55, 55);
+}
 
+#deal-container-head{
+	padding: 5px 0;
+	line-height:20px;
+}
 
-.deal-panel-30{
-	width:30%;
-	min-width: 250px;
-	margin-left: 3%;
+#bus-name-deals{
+	font-size: 25px;
+	line-height:35px;
+}
+
+.deal-panel{
+	width: 98%;
+	margin-left:1%;
 	margin-bottom: 20px;
 	display: inline-block;
 }
 
-.deal-panel-30:nth-child(3) {
+.deal-panel:nth-child(3) {
     margin-right: 0;
 }
 
@@ -505,14 +545,48 @@ header{
 	margin:0;
 }
 
+
+
+
+
+
+
+
+
+.desc-label{
+	font-size: 17px;
+	color: black;
+	font-weight: bold;
+	margin-right: 10px;
+}
+
+.desc-label-cu{
+	font-size:10px;
+	margin-right:5px;
+}
+
+.desc-content{
+	font-size: 17px;
+	color: rgb(21, 21, 21);
+}
+
+.desc-content-cu{
+	font-size:9px;
+}
+
+.ind-business-action{
+	display: inline-block;
+	font-size:0;
+}
+
 .edit-business-info-button{
 	display: inline-block;
-	opacity:0;
+	opacity:0.05;
 	cursor: pointer;
-	margin-left:15px;
 	font-size:15px;
+	margin-right:10px;
 	padding:3px;
-	border : 2px solid purple;
+	border : 1px solid purple;
 	background-color: rgb(245, 245, 245);
 	color: rgb(0, 0, 0);
 	border-radius: 5px;
@@ -535,8 +609,6 @@ header{
 	background-color: purple;
 	border-color:lime;
 }
-
-
 
 footer{
 	text-align: center;

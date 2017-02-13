@@ -17,6 +17,7 @@ $(document).ready(function() {
       initializeDrop();
     });
   }
+
   $('#category-list').on('change', function () {
      var category = $('#category-list').val();
      $.get("/api/businesses/"+category, function(data) {
@@ -31,6 +32,19 @@ $(document).ready(function() {
     $.get("/api/search/"+bizname, function(data) {
       businesses = data;
       initializePanels();
+      $('#biz_name').val('');
+    });
+  });
+
+  $('#search-form-top').on('submit', function(event){
+    event.preventDefault();
+    // var businessName = $('#search-input-business-top').val().replace(/\s+/g, '-').toLowerCase();
+    var businessName = $('#search-input-business-top').val();
+    //need this to route to the businesses.html!!!
+    $.get("/api/search/"+ businessName, function(data) {
+      businesses = data;
+      initializePanels();
+      $('#search-input-business-top').val('');
     });
   });
   

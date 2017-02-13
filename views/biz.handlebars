@@ -5,6 +5,11 @@
 			<div id = 'business-name'>{{biz_name}}</div>
 			<br>
 			<div id = 'business-image'></div>
+			<div id='individual-business-map'>
+				{{#if biz_lat}}
+				 <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q={{biz_lat}},{{biz_long}}&amp;key=AIzaSyCHIwflHyQ2bFuxjJFZ-6kWdy-SBLyxBfs"></iframe>
+				{{/if}}
+			</div>
 			<div id = 'business-information'>
 				<div class = 'business-attribute'>
 					<span class = 'desc-label'>category:</span>
@@ -18,52 +23,62 @@
 					<span class = 'desc-label'>what we do:</span>
 					<span class = 'desc-content'>{{biz_desc}}</span>
 				</div>
+				<div class = 'business-create-update'>
+					<span class = 'desc-label-cu'>listing created at:</span>
+					<span class = 'desc-content-cu'>{{createdAt}}</span>
+				</div>
+				<div class = 'business-create-update'>
+					<span class = 'desc-label-cu'>listing updated at:</span>
+					<span class = 'desc-content-cu'>{{updatedAt}}</span>
+				</div>
 			</div>
 			<br>
-			<div id='individual-business-map'>
-				{{#if biz_lat}}
-				 <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q={{biz_lat}},{{biz_long}}&amp;key=AIzaSyCHIwflHyQ2bFuxjJFZ-6kWdy-SBLyxBfs"></iframe>
-				{{/if}}
+		</div>
+		<div id = 'deal-container'><div id='deal-container-head'>current deals for<br><span id = 'bus-name-deals'>{{biz_name}}</span></div>
+			<div class = 'deal-panel'>
+				<div class = 'deal-panel-header'>
+					awesome deal
+				</div>
+				<div class = 'deal-panel-content'>
+					content of awesome deal
+				</div>
 			</div>
-		</div>
-		<div id = 'deal-container'>
-		</div>
+			<div class = 'deal-panel'>
+				<div class = 'deal-panel-header'>
+					awesome deal
+				</div>
+				<div class = 'deal-panel-content'>
+					content of awesome deal
+				</div>
+			</div>
+			<div class = 'deal-panel'>
+				<div class = 'deal-panel-header'>
+					awesome deal
+				</div>
+				<div class = 'deal-panel-content'>
+					content of awesome deal
+				</div>
+			</div>
+			{{#each offers}}
 
-		<div id = 'business-deals'>
-			<div class = 'deal-panel-30'>
-				<div class = 'deal-panel-header'>
-					awesome deal
-				</div>
-				<div class = 'deal-panel-content'>
-					content of awesome deal
-				</div>
+			<div class="offerResult">
+				<p class="offerName">{{this.offer_title}}</p>
+				<p class="origPrice">Original Price: {{this.offer_origPrice}}</p>
+				<p class="dealPrice">Deal Price: {{this.offer_dealPrice}}</p>
+				<p class="offerimage">Offer Image URL: {{this.offer_image}}</p>
+				<p class="offerCreateAt">Created At: {{this.createdAt}}</p>
+				<p class="offerUpdateAt">Updated At: {{this.updatedAt}}</p>
 			</div>
-			<div class = 'deal-panel-30'>
-				<div class = 'deal-panel-header'>
-					awesome deal
-				</div>
-				<div class = 'deal-panel-content'>
-					content of awesome deal
-				</div>
-			</div>
-			<div class = 'deal-panel-30'>
-				<div class = 'deal-panel-header'>
-					awesome deal
-				</div>
-				<div class = 'deal-panel-content'>
-					content of awesome deal
-				</div>
-			</div>
+
+			{{/each}}
 		</div>
-		<form id = 'create-deal' action = '/create/offer/{{id}}' method = 'GET'> 
+		<form class = 'ind-business-action' id = 'edit-business-info'>
+			<button class = 'edit-business-info-button'>edit info</button>
+		</form>
+		<form class = 'ind-business-action' id = 'create-deal' action = '/create/offer/{{id}}' method = 'GET'> 
 		<!--<form id = 'create-deal' action = '/api/offers/new/{{id}}' method = 'GET'>-->
 			<button class = 'edit-business-info-button' id='deal-button' type = 'submit' title = 'create deal'>create deal</button>
 		</form>
-		<form id = 'create-deal' action = '/create/offer/{{id}}' method = 'GET'> 
-			<button class = 'edit-business-info-button'>edit info</button>
-		</form>
-		<p class="bizCreateAt">Created At: {{createdAt}}</p>
-		<p class="bizUpdateAt">Updated At: {{updatedAt}}</p>
 	</div>
 
 {{!-- {{/each}} --}}
