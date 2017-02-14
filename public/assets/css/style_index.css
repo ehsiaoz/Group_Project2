@@ -457,12 +457,17 @@ header{
 #business-information{
 	display: inline-block;
 	vertical-align: top;
+	padding-right:10px;
 	width: 100%;
 	min-width:250px;
 }
 
 .business-attribute{
 	margin-bottom: 8px;
+}
+
+#transform-address{
+	text-transform: capitalize;
 }
 
 .business-create-update{
@@ -512,24 +517,37 @@ header{
 }
 
 .deal-panel{
-	width: 98%;
-	margin-left:1%;
-	margin-bottom: 20px;
+	width: 96%;
+	margin: 0 auto 20px;
 	display: inline-block;
 }
 
-.deal-panel:nth-child(3) {
+/*.deal-panel:nth-child(3) {
     margin-right: 0;
-}
+}*/
 
 .deal-panel-header{
-	font-size: 25px;
+/*	font-size: 25px;
 	padding: 8px 10px;
 	background-color: rgb(245, 245, 245);
 	color: rgb(15, 15, 15);
 	border:2px solid purple;
 	border-radius: 5px 5px 0 0;
-	margin:0;
+	margin:0;*/
+
+
+/*	display: inline-block;
+*//*	width: 45%;
+	min-width: 275px;*/
+	height: 200px;
+	background-image: url('../images/deal_image_06.jpg');
+	background-position: center center;
+	background-repeat: no-repeat;
+/*    background-attachment: fixed;
+*/    background-size: cover;
+    -webkit-transition: all 0.5s ease 0s;
+	-moz-transition: all 0.5s ease 0s;
+	transition: all 0.5s ease 0s;
 }
 
 .deal-panel-content{
