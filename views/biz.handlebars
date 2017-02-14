@@ -31,34 +31,55 @@
 					<span class = 'desc-label-cu'>listing updated at:</span>
 					<span class = 'desc-content-cu'>{{updatedAt}}</span>
 				</div>
+				<form class = 'ind-business-action' id = 'edit-business-info'>
+					<button class = 'edit-business-info-button'>edit info</button>
+				</form>
+				<form class = 'ind-business-action' id = 'create-deal' action = '/create/offer/{{id}}' method = 'GET'> 
+				<!--<form id = 'create-deal' action = '/api/offers/new/{{id}}' method = 'GET'>-->
+					<button class = 'edit-business-info-button' id='deal-button' type = 'submit' title = 'create deal'>create deal</button>
+				</form>
 			</div>
 			<br>
 		</div>
 		<div id = 'deal-container-ind'><div id='deal-container-head'>current deals for<br><span id = 'bus-name-deals'>{{biz_name}}</span></div>
 			<div class = 'deal-panel'>
 				<div class = 'deal-panel-header'>
-					awesome deal
+					<div class = 'limited-time-container'>
+						<div class= 'cornered-text-days cornered-text'>5</div>
+						<div class= 'cornered-text-words cornered-text'>days left<br>to purchase</div>
+						<div class="cornered corner"></div>
+						<div class="cornered2 corner"></div>
+					</div>
 				</div>
 				<div class = 'deal-panel-content'>
-					content of awesome deal
+					<!-- <span class = 'deal-label'>what you get:</span>
+					<br> -->
+					<span class = 'deal-title-content'>amazing experience</span>
+					<div class = 'deal-desc-div reg-price'>
+						<span class = 'deal-label'>regular price: </span>
+						<span class = 'deal-regprice-content'>$50.00</span>
+					</div>
+					<div class = 'deal-desc-div'>
+						<span class = 'deal-label dl-dealprice'>NOW:</span>
+						<span class = 'deal-dealprice-content'>$19.99</span>
+					</div>
+					<div class = 'deal-desc-div ddd-cu'>
+						<span class = 'deal-label dl-cu'>deal created at: </span>
+						<span class = 'deal-created-content dl-cu'>date date date</span>
+					</div>
+					<div class = 'deal-desc-div ddd-cu'>
+						<span class = 'deal-label dl-cu'>deal updated at: </span>
+						<span class = 'deal-updated-content dl-cu'>date date date</span>
+					</div>
 				</div>
 			</div>
-			<div class = 'deal-panel'>
+			<!-- <div class = 'deal-panel'>
 				<div class = 'deal-panel-header'>
-					awesome deal
 				</div>
 				<div class = 'deal-panel-content'>
 					content of awesome deal
 				</div>
-			</div>
-			<div class = 'deal-panel'>
-				<div class = 'deal-panel-header'>
-					awesome deal
-				</div>
-				<div class = 'deal-panel-content'>
-					content of awesome deal
-				</div>
-			</div>
+			</div> -->
 			{{#each offers}}
 
 			<div class="offerResult">
@@ -72,13 +93,6 @@
 
 			{{/each}}
 		</div>
-		<form class = 'ind-business-action' id = 'edit-business-info'>
-			<button class = 'edit-business-info-button'>edit info</button>
-		</form>
-		<form class = 'ind-business-action' id = 'create-deal' action = '/create/offer/{{id}}' method = 'GET'> 
-		<!--<form id = 'create-deal' action = '/api/offers/new/{{id}}' method = 'GET'>-->
-			<button class = 'edit-business-info-button' id='deal-button' type = 'submit' title = 'create deal'>create deal</button>
-		</form>
 	</div>
 
 {{!-- {{/each}} --}}
