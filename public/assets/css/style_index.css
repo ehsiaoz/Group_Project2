@@ -600,6 +600,12 @@ header{
 	font-size:17px;
 }
 
+.deal-dealprice-content{
+	color:lime;
+	font-size:23px;
+	text-shadow: 2px 2px 0 rgb(100, 100, 100), 2px 2px 3px rgb(55, 13, 55);
+}
+
 .dl-cu{
 	font-size:9px;
 	opacity: 0.03;

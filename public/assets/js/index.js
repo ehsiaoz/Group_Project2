@@ -23,7 +23,6 @@ function populateIndBusDeals(howMany){
 	var titleAdj = ['hipster', 'hand made', 'unforgettable', 'extravagant', 'unique', 'personalized', 'custom', 'unrivaled', 'fresh', 'stylish', 'premium', 'upgraded', 'exclusive', 'modern'];
 	var titleNoun = ['fried chicken', 'retreat', 'service', 'opportunity', 'luxury', 'experience', 'style', 'relaxation', 'package'];
 	for(var i = 0; i < howMany; i ++){
-		console.log(imagesArray);
 		var selectedImage = Math.floor(Math.random()*imagesArray.length);
 		var deal = document.createElement('div');
 		deal.className = 'deal-panel';
@@ -33,7 +32,7 @@ function populateIndBusDeals(howMany){
 		dealHeader.style.backgroundImage = 'url(/assets/images/' + imagesArray[selectedImage].localurl + ')';
 		dealHeader.setAttribute('actual-url', imagesArray[selectedImage].actualurl);
 		dealHeader.setAttribute('disclaimer', 'This image used without explicit permission.');
-		if(Math.random()<0.5){
+		if(Math.random()<0.65){
 			var daysLeft = Math.floor(Math.random()*8)+2;
 			var limitedTime = document.createElement('div');
 			limitedTime.className = 'limited-time-container';
@@ -63,7 +62,7 @@ function populateIndBusDeals(howMany){
 		dealContent.appendChild(dTitle);
 		//create regular price div
 		var firstPrice = Math.floor(Math.random()*200) + 150;
-		var newPrice = Math.floor(((Math.random()*0.4)+0.5)*firstPrice);
+		var newPrice = Math.floor(((Math.random()*0.4)+0.1)*firstPrice);
 		var regPriceDiv = document.createElement('div');
 		regPriceDiv.className = 'deal-desc-div reg-price';
 		var origPrice = document.createElement('span');
